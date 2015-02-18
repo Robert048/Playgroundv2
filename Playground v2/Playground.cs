@@ -15,6 +15,12 @@ namespace Playground_v2
         public Playground()
         {
             InitializeComponent();
+            System.Threading.Thread databaseConnection = new System.Threading.Thread(connection);
+        }
+
+        private void connection(object obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
