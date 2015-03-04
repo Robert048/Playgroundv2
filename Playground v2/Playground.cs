@@ -15,6 +15,7 @@ namespace Playground_v2
     {
         Database database;
         Thread databaseConnectionThread;
+        Thread databaseOptionsThread;
 
         public Playground()
         {
@@ -22,11 +23,12 @@ namespace Playground_v2
             database = new Database();
 
             //make a thread for the database connection
-            databaseConnectionThread = new Thread(connection);
+            databaseConnectionThread = new Thread(new ThreadStart(connection));
+            databaseConnectionThread.Start();
         }
 
         //database connection thread
-        private void connection(object obj)
+        private void connection()
         {
             if(database.databaseConnection())
             {
@@ -39,6 +41,25 @@ namespace Playground_v2
             
             //close thread
             databaseConnectionThread.Abort();
+        }
+
+        /// <summary>
+        /// Edit > update database
+        /// Makes a new thread to open a form for database settings
+        /// </summary>
+        private void updateDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            databaseOptionsThread = new Thread(new ThreadStart(openForm));
+            databaseOptionsThread.Start();
+        }
+        
+        /// <summary>
+        /// Opens the form for the database settings
+        /// </summary>
+        private void openForm()
+        {
+            DatabaseOptions databaseOptions = new DatabaseOptions();
+            Application.Run(databaseOptions);
         }
     }
 }

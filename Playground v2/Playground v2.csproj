@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database.cs" />
+    <Compile Include="DatabaseOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseOptions.Designer.cs">
+      <DependentUpon>DatabaseOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
