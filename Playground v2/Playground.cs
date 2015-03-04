@@ -18,6 +18,7 @@ namespace Playground_v2
             System.Threading.Thread databaseConnection = new System.Threading.Thread(connection);
         }
 
+        //database connection thread
         private void connection(object obj)
         {
             throw new NotImplementedException();
