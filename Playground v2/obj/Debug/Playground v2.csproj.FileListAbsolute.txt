@@ -1,1 +1,19 @@
 C:\Users\Robert048\Documents\Visual Studio 2013\Projects\Playground v2\Playground v2\bin\Debug\Playground v2.exe.config
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\bin\Debug\Playground v2.exe.config
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\bin\Debug\Playground v2.exe
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\bin\Debug\Playground v2.pdb
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.csprojResolveAssemblyReference.cache
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Playground.resources
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Properties.Resources.resources
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.csproj.GenerateResource.Cache
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.exe
+C:\Users\Robert048\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.pdb
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\bin\Debug\Playground v2.exe.config
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground v2.exe
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground v2.pdb
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\bin\Debug\Playground v2.exe
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\bin\Debug\Playground v2.pdb
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground v2.csprojResolveAssemblyReference.cache
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Playground.resources
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Properties.Resources.resources
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground v2.csproj.GenerateResource.Cache
