@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Playground));
-            this.panelPlayground = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,17 +41,9 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelPlayground
-            // 
-            this.panelPlayground.Location = new System.Drawing.Point(219, 52);
-            this.panelPlayground.Name = "panelPlayground";
-            this.panelPlayground.Size = new System.Drawing.Size(324, 263);
-            this.panelPlayground.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -160,21 +151,12 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 261);
-            this.panel1.TabIndex = 3;
-            // 
             // Playground
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 332);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.panelPlayground);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Playground";
@@ -190,7 +172,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelPlayground;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -203,6 +184,5 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem updateDatabaseToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
     }
 }

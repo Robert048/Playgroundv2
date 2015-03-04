@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,31 +13,32 @@ namespace Playground_v2
 {
     public partial class Playground : Form
     {
-        string connectionString = null;
-        OdbcConnection conn;
+        Database database;
+        Thread databaseConnectionThread;
 
         public Playground()
         {
             InitializeComponent();
-            System.Threading.Thread databaseConnection = new System.Threading.Thread(connection);
+            database = new Database();
+
+            //make a thread for the database connection
+            databaseConnectionThread = new Thread(connection);
         }
 
         //database connection thread
         private void connection(object obj)
         {
-            connectionString = ConfigurationManager.ConnectionStrings["Aspen tech"].ConnectionString;
-            conn = new OdbcConnection(connectionString);
+            if(database.databaseConnection())
+            {
+                //TODO
 
-            try
-            {
-                conn.Open();
-                MessageBox.Show("Connection Open ! ");
-                conn.Close();
+
+                //close database connection
+                database.closeConnection();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection ! ");
-            }
+            
+            //close thread
+            databaseConnectionThread.Abort();
         }
     }
 }
