@@ -17,3 +17,4 @@ C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playgro
 C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Playground.resources
 C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground_v2.Properties.Resources.resources
 C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground v2.csproj.GenerateResource.Cache
+C:\Users\Robert048\Documents\GitHub\Playgroundv2\Playground v2\obj\Debug\Playground_v2.DatabaseOptions.resources
