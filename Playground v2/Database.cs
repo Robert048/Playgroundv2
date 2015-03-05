@@ -13,7 +13,7 @@ namespace Playground_v2
         string connectionString = null;
         OdbcConnection conn;
 
-        public Database()
+        public Database()   
         {
         //get connectionString from the app.config and open the connection.
         connectionString = ConfigurationManager.ConnectionStrings["Aspen tech"].ConnectionString;
