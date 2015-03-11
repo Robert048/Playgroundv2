@@ -32,7 +32,14 @@ namespace Playground_v2
         {
             if(database.databaseConnection())
             {
-                //TODO
+                //fill checked list box
+                listBoxDB1.BeginUpdate();
+
+                // TODO add items
+                //listBoxDB1.Items.Add(" ");
+                
+                // End the update process and force a repaint of the ListBox.
+                listBoxDB1.EndUpdate();
 
 
                 //close database connection

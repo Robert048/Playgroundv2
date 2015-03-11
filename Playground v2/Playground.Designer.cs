@@ -50,24 +50,26 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.DB1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.listBoxDB1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.DB1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -159,25 +161,25 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // viewToolStripMenuItem
@@ -245,30 +247,32 @@
             this.panel2.Size = new System.Drawing.Size(200, 296);
             this.panel2.TabIndex = 5;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(200, 266);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl.Controls.Add(this.DB1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(200, 266);
+            this.tabControl.TabIndex = 0;
             // 
-            // tabPage1
+            // DB1
             // 
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 240);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.DB1.Controls.Add(this.listBoxDB1);
+            this.DB1.Controls.Add(this.panel5);
+            this.DB1.Location = new System.Drawing.Point(4, 22);
+            this.DB1.Name = "DB1";
+            this.DB1.Padding = new System.Windows.Forms.Padding(3);
+            this.DB1.Size = new System.Drawing.Size(192, 240);
+            this.DB1.TabIndex = 0;
+            this.DB1.Text = "Aspen tech";
+            this.DB1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkedListBox2);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -287,7 +291,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Oke";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -299,7 +303,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 30);
             this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
+            this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // panel3
@@ -316,27 +320,28 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.tabControl1);
+            this.panel4.Controls.Add(this.tabControl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 266);
             this.panel4.TabIndex = 3;
             // 
-            // textBox1
+            // searchBox
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.textBox1.Location = new System.Drawing.Point(36, 0);
-            this.textBox1.MaximumSize = new System.Drawing.Size(150, 20);
-            this.textBox1.MinimumSize = new System.Drawing.Size(150, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 0;
+            this.searchBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.searchBox.Location = new System.Drawing.Point(36, 0);
+            this.searchBox.MaximumSize = new System.Drawing.Size(150, 20);
+            this.searchBox.MinimumSize = new System.Drawing.Size(150, 20);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(150, 20);
+            this.searchBox.TabIndex = 0;
+            this.searchBox.Tag = "";
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.pictureBox3);
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.searchBox);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.MaximumSize = new System.Drawing.Size(0, 20);
@@ -397,6 +402,24 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
+            // listBoxDB1
+            // 
+            this.listBoxDB1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxDB1.FormattingEnabled = true;
+            this.listBoxDB1.Location = new System.Drawing.Point(3, 23);
+            this.listBoxDB1.Name = "listBoxDB1";
+            this.listBoxDB1.Size = new System.Drawing.Size(186, 214);
+            this.listBoxDB1.TabIndex = 2;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(3, 23);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(186, 214);
+            this.checkedListBox2.TabIndex = 3;
+            // 
             // Playground
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,8 +437,8 @@
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.DB1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -454,17 +477,19 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage DB1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.CheckedListBox listBoxDB1;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
     }
 }
