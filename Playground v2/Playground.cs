@@ -61,5 +61,22 @@ namespace Playground_v2
             DatabaseOptions databaseOptions = new DatabaseOptions();
             Application.Run(databaseOptions);
         }
+
+        /// <summary>
+        /// check for gridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gridToolStripMenuItem.Checked)
+            {
+                MessageBox.Show("check");
+            }
+            else
+            {
+                MessageBox.Show("uncheck");
+            }
+        }
     }
 }
