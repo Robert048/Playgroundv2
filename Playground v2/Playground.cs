@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,9 +40,18 @@ namespace Playground_v2
             {
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
+                string query = "Select * from Table_1";
+                SqlCommand command = new SqlCommand(query, database.getConnection());
+                using (SqlDataReader oReader = command.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        listBoxDB1.Items.Add(oReader["id"].ToString()+ " - " + oReader["naam"].ToString());
+                    }
 
+                } 
                 // TODO add items
-                listBoxDB1.Items.Add("bla");
+                listBoxDB1.Items.Add("..");
 
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();

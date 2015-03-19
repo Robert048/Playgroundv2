@@ -52,5 +52,10 @@ namespace Playground_v2
             conn.Close();
         }
 
+        public SqlConnection getConnection()
+        {
+            return conn;
+        }
+
     }
 }
