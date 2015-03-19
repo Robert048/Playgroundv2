@@ -18,6 +18,10 @@ namespace Playground_v2
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
 
+        List<dbObject> machines;
+
+        delegate void updateListBoxCallBack(String text);
+
         public Playground()
         {
             InitializeComponent();
@@ -28,7 +32,16 @@ namespace Playground_v2
             databaseConnectionThread.Start();
         }
 
-        delegate void updateListBoxCallBack(String text);
+        public class dbObject
+        {
+            public string naam { get; set; }
+
+            public dbObject(string naam)
+            {
+                this.naam = naam;
+            }
+        }
+        
         private void updateListBox(string text)
         {
             if(this.listBoxDB1.InvokeRequired)
@@ -46,12 +59,10 @@ namespace Playground_v2
                 {
                     while (oReader.Read())
                     {
+                        //add items
                         listBoxDB1.Items.Add(oReader["id"].ToString()+ " - " + oReader["naam"].ToString());
                     }
-
                 } 
-                // TODO add items
-                listBoxDB1.Items.Add("..");
 
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
@@ -107,6 +118,49 @@ namespace Playground_v2
             else
             {
                 MessageBox.Show("uncheck");
+            }
+        }
+
+        private void search(object sender, KeyEventArgs e)
+        {
+            listBoxDB1.BeginUpdate();
+            listBoxDB1.Items.Clear();
+            string searchText = searchBox.Text;
+            SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = database.getConnection();
+            cmd.Parameters.AddWithValue("@naam", searchText);
+            cmd.Parameters.AddWithValue("@wildcard", "%");
+            database.getConnection().Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while(dr.Read())
+            {   
+                for (int i = 0; i < dr.FieldCount; i++)
+                {
+                    listBoxDB1.Items.Add(dr[i].ToString());
+                }
+            }
+            listBoxDB1.EndUpdate();
+            database.getConnection().Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            machines = new List<dbObject>();
+            foreach (int i in listBoxDB1.CheckedIndices)
+            {
+                dbObject temp = new dbObject(listBoxDB1.Text);
+                machines.Add(temp);
+            }
+
+            //machines op panel doen
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (int i in listBoxDB1.CheckedIndices)
+            {
+                listBoxDB1.SetItemCheckState(i, CheckState.Unchecked);
             }
         }
     }

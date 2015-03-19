@@ -58,10 +58,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.listBoxDB2 = new System.Windows.Forms.CheckedListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.searchBox2 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -326,10 +326,11 @@
             this.searchBox.Size = new System.Drawing.Size(150, 20);
             this.searchBox.TabIndex = 0;
             this.searchBox.Tag = "";
+            this.searchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.search);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox2);
+            this.tabPage2.Controls.Add(this.listBoxDB2);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -339,19 +340,19 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox2
+            // listBoxDB2
             // 
-            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(3, 23);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(186, 214);
-            this.checkedListBox2.TabIndex = 3;
+            this.listBoxDB2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxDB2.FormattingEnabled = true;
+            this.listBoxDB2.Location = new System.Drawing.Point(3, 23);
+            this.listBoxDB2.Name = "listBoxDB2";
+            this.listBoxDB2.Size = new System.Drawing.Size(186, 214);
+            this.listBoxDB2.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.pictureBox2);
-            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.searchBox2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.MaximumSize = new System.Drawing.Size(0, 20);
@@ -375,15 +376,15 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox2
+            // searchBox2
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.textBox2.Location = new System.Drawing.Point(36, 0);
-            this.textBox2.MaximumSize = new System.Drawing.Size(150, 20);
-            this.textBox2.MinimumSize = new System.Drawing.Size(150, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 0;
+            this.searchBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.searchBox2.Location = new System.Drawing.Point(36, 0);
+            this.searchBox2.MaximumSize = new System.Drawing.Size(150, 20);
+            this.searchBox2.MinimumSize = new System.Drawing.Size(150, 20);
+            this.searchBox2.Name = "searchBox2";
+            this.searchBox2.Size = new System.Drawing.Size(150, 20);
+            this.searchBox2.TabIndex = 0;
             // 
             // panel3
             // 
@@ -408,6 +409,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -420,6 +422,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Oke";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Playground
             // 
@@ -488,9 +491,9 @@
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox searchBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.CheckedListBox listBoxDB1;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox listBoxDB2;
     }
 }
