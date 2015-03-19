@@ -50,33 +50,33 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.DB1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.searchBox = new System.Windows.Forms.TextBox();
+            this.listBoxDB1 = new System.Windows.Forms.CheckedListBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.listBoxDB1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.DB1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -161,25 +161,25 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // viewToolStripMenuItem
@@ -247,6 +247,15 @@
             this.panel2.Size = new System.Drawing.Size(200, 296);
             this.panel2.TabIndex = 5;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.tabControl);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 266);
+            this.panel4.TabIndex = 3;
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.DB1);
@@ -270,73 +279,14 @@
             this.DB1.Text = "Aspen tech";
             this.DB1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // listBoxDB1
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox2);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 240);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(100, 0);
-            this.button1.MaximumSize = new System.Drawing.Size(100, 30);
-            this.button1.MinimumSize = new System.Drawing.Size(100, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Oke";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.MaximumSize = new System.Drawing.Size(100, 30);
-            this.button2.MinimumSize = new System.Drawing.Size(100, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 266);
-            this.panel3.MaximumSize = new System.Drawing.Size(200, 30);
-            this.panel3.MinimumSize = new System.Drawing.Size(200, 30);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 30);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.tabControl);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 266);
-            this.panel4.TabIndex = 3;
-            // 
-            // searchBox
-            // 
-            this.searchBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.searchBox.Location = new System.Drawing.Point(36, 0);
-            this.searchBox.MaximumSize = new System.Drawing.Size(150, 20);
-            this.searchBox.MinimumSize = new System.Drawing.Size(150, 20);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(150, 20);
-            this.searchBox.TabIndex = 0;
-            this.searchBox.Tag = "";
+            this.listBoxDB1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxDB1.FormattingEnabled = true;
+            this.listBoxDB1.Location = new System.Drawing.Point(3, 23);
+            this.listBoxDB1.Name = "listBoxDB1";
+            this.listBoxDB1.Size = new System.Drawing.Size(186, 214);
+            this.listBoxDB1.TabIndex = 2;
             // 
             // panel5
             // 
@@ -349,6 +299,53 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(186, 20);
             this.panel5.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::Playground_v2.Properties.Resources._1426093958_common_search_lookup__128;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.MaximumSize = new System.Drawing.Size(36, 20);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(36, 20);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 20);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // searchBox
+            // 
+            this.searchBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.searchBox.Location = new System.Drawing.Point(36, 0);
+            this.searchBox.MaximumSize = new System.Drawing.Size(150, 20);
+            this.searchBox.MinimumSize = new System.Drawing.Size(150, 20);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(150, 20);
+            this.searchBox.TabIndex = 0;
+            this.searchBox.Tag = "";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.checkedListBox2);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 240);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(3, 23);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(186, 214);
+            this.checkedListBox2.TabIndex = 3;
             // 
             // panel6
             // 
@@ -387,38 +384,41 @@
             this.textBox2.Size = new System.Drawing.Size(150, 20);
             this.textBox2.TabIndex = 0;
             // 
-            // pictureBox3
+            // panel3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::Playground_v2.Properties.Resources._1426093958_common_search_lookup__128;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.MaximumSize = new System.Drawing.Size(36, 20);
-            this.pictureBox3.MinimumSize = new System.Drawing.Size(36, 20);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 20);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 266);
+            this.panel3.MaximumSize = new System.Drawing.Size(200, 30);
+            this.panel3.MinimumSize = new System.Drawing.Size(200, 30);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 30);
+            this.panel3.TabIndex = 2;
             // 
-            // listBoxDB1
+            // button2
             // 
-            this.listBoxDB1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxDB1.FormattingEnabled = true;
-            this.listBoxDB1.Location = new System.Drawing.Point(3, 23);
-            this.listBoxDB1.Name = "listBoxDB1";
-            this.listBoxDB1.Size = new System.Drawing.Size(186, 214);
-            this.listBoxDB1.TabIndex = 2;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.MaximumSize = new System.Drawing.Size(100, 30);
+            this.button2.MinimumSize = new System.Drawing.Size(100, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 30);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox2
+            // button1
             // 
-            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(3, 23);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(186, 214);
-            this.checkedListBox2.TabIndex = 3;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Location = new System.Drawing.Point(100, 0);
+            this.button1.MaximumSize = new System.Drawing.Size(100, 30);
+            this.button1.MinimumSize = new System.Drawing.Size(100, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Oke";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Playground
             // 
@@ -437,17 +437,17 @@
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.DB1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
