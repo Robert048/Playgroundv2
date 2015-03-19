@@ -27,10 +27,11 @@ namespace Playground_v2
 
         private void setUpTapControl()
         {
+            
             tabControl1.Dock = DockStyle.Fill;
         }
 
-        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.Controls.Clear();
 
@@ -111,6 +112,7 @@ namespace Playground_v2
                     tabControl1.Controls.Add(tabPage);
                 }
             }
+
         }
 
     }
