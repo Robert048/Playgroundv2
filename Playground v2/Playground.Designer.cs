@@ -140,6 +140,7 @@
             this.updateDatabaseToolStripMenuItem.Name = "updateDatabaseToolStripMenuItem";
             this.updateDatabaseToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.updateDatabaseToolStripMenuItem.Text = "Update database";
+            this.updateDatabaseToolStripMenuItem.Click += new System.EventHandler(this.updateDatabaseToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem1
             // 

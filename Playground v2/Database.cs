@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Odbc;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,16 @@ namespace Playground_v2
     class Database
     {
         string connectionString = null;
-        OdbcConnection conn;
+        //OdbcConnection conn;
+        SqlConnection conn;
 
         public Database()   
         {
         //get connectionString from the app.config and open the connection.
-        connectionString = ConfigurationManager.ConnectionStrings["Aspen tech"].ConnectionString;
-        conn = new OdbcConnection(connectionString);
+        //connectionString = ConfigurationManager.ConnectionStrings["Aspen tech"].ConnectionString;
+        //conn = new OdbcConnection(connectionString);
+        connectionString = ConfigurationManager.ConnectionStrings["test"].ConnectionString;
+        conn = new SqlConnection(connectionString);
         }
 
         /// <summary>

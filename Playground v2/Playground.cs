@@ -27,19 +27,33 @@ namespace Playground_v2
             databaseConnectionThread.Start();
         }
 
-        //database connection thread
-        private void connection()
+        delegate void updateListBoxCallBack(String text);
+        private void updateListBox(string text)
         {
-            if(database.databaseConnection())
+            if(this.listBoxDB1.InvokeRequired)
+            {
+                updateListBoxCallBack d = new updateListBoxCallBack(updateListBox);
+                this.Invoke(d, new object[] { text });
+            }
+            else
             {
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
 
                 // TODO add items
-                //listBoxDB1.Items.Add(" ");
-                
+                listBoxDB1.Items.Add("bla");
+
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
+            }
+            
+        }
+        //database connection thread
+        private void connection()
+        {
+            if(database.databaseConnection())
+            {
+                updateListBox("test");
 
 
                 //close database connection
