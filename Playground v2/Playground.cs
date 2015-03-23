@@ -147,13 +147,40 @@ namespace Playground_v2
         private void button1_Click(object sender, EventArgs e)
         {
             machines = new List<dbObject>();
-            foreach (int i in listBoxDB1.CheckedIndices)
+            foreach (object itemChecked in listBoxDB1.CheckedItems)
             {
                 dbObject temp = new dbObject(listBoxDB1.Text);
                 machines.Add(temp);
             }
 
             //machines op panel doen
+            int j = 0;
+            foreach (dbObject machine in machines)
+            {
+                j = j + 51;
+                Label label = new Label();
+                Panel panel = new Panel();
+
+                panel.Controls.Add(label);
+                panel.Size = new Size(100, 50);
+                panel.BackColor = Color.Yellow;
+
+                label.Text = machine.naam;
+                label.AutoSize = true;
+                label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
+
+                panel.Location = new Point(10, 10 + j);
+
+                panel1.Controls.Add(panel);
+
+            }
+
+
+            
+
+
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
