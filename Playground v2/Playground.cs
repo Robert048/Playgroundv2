@@ -149,15 +149,21 @@ namespace Playground_v2
             machines = new List<dbObject>();
             foreach (object itemChecked in listBoxDB1.CheckedItems)
             {
-                dbObject temp = new dbObject(listBoxDB1.Text);
+                dbObject temp = new dbObject(itemChecked.ToString());
                 machines.Add(temp);
             }
 
             //machines op panel doen
-            int j = 0;
+            int y = -51;
+            int x = 0;
             foreach (dbObject machine in machines)
             {
-                j = j + 51;
+                y = y + 51;
+                if(y >= pnlPlayground.Height)
+                {
+                    y = 0;
+                    x = x + 101;
+                }
                 Label label = new Label();
                 Panel panel = new Panel();
 
@@ -169,9 +175,9 @@ namespace Playground_v2
                 label.AutoSize = true;
                 label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
 
-                panel.Location = new Point(10, 10 + j);
+                panel.Location = new Point(10 + x, 10 + y);
 
-                panel1.Controls.Add(panel);
+                pnlPlayground.Controls.Add(panel);
 
             }
 
