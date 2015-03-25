@@ -13,11 +13,12 @@ namespace Playground_v2
 {
     public partial class NewDatabase : Form
     {
-        private string xmlPath = "";
+        private string xmlConfigPath;
 
         public NewDatabase(string xmlPath)
         {
-            this.xmlPath = xmlPath;
+            this.xmlConfigPath = xmlPath;
+
             InitializeComponent();
         }
 
@@ -56,7 +57,11 @@ namespace Playground_v2
 
                 var label = this.Controls["key" + i];
 
-                var key = label.Text.Substring(0, label.Text.Length - 1);
+                var key = label.Text;
+
+                if (key.Contains(':'))
+                    key = label.Text.Substring(0, label.Text.Length - 1);
+
                 var value = control.Text;
 
                 if (key != "" && value != "")
@@ -73,27 +78,39 @@ namespace Playground_v2
 
             foreach (KeyValuePair<string, string> keyValuePair in keyValues)
             {
-                if (keyValuePair.Key != tabName && keyValuePair.Key != providerName)
+                if (keyValuePair.Key != "Databasename (Tab name)" && keyValuePair.Key != "Provider name")
                     connectionString.Append(keyValuePair.Key + "=" + keyValuePair.Value + ";");
             }
 
-            string xmlConfig = "<add name=\"Aspen tech\" connectionString=\"Dsn=IP21;trusted_connection=Yes;\" providerName=\"System.Data.Odbc\" />";
-            System.Diagnostics.Debug.WriteLine("Tabname: " + tabName);
-            System.Diagnostics.Debug.WriteLine("ProviderName: " + providerName);
-            System.Diagnostics.Debug.WriteLine("XML: " + connectionString.ToString());
+            editXmlConfigFile(tabName, providerName, connectionString.ToString());
         }
 
-        private void editXmlConfigFile()
+        private void editXmlConfigFile(string dbName, string providerName, string connectionString)
         {
             XmlDocument document = new XmlDocument();
-            document.LoadXml(xmlPath);
+            document.Load(xmlConfigPath);
 
-            XmlNodeList nodes = document.SelectNodes("configuration/connectionStrings/add");
+            XmlNode node = document.SelectSingleNode("configuration/connectionStrings");
 
-            foreach (XmlNode node in nodes)
-            {
-                //string name = node.Attributes[""];
-            }
+            XmlNode newNode = document.CreateNode(XmlNodeType.Element, "add", "");
+
+            XmlAttribute nameAttr = document.CreateAttribute("name");
+            nameAttr.Value = dbName;
+            newNode.Attributes.Append(nameAttr);
+
+            XmlAttribute connectionStringAttr = document.CreateAttribute("connectionString");
+            connectionStringAttr.Value = connectionString;
+            newNode.Attributes.Append(connectionStringAttr);
+
+            XmlAttribute providerNameAttr = document.CreateAttribute("providerName");
+            providerNameAttr.Value = providerName;
+            newNode.Attributes.Append(providerNameAttr);
+
+            node.AppendChild(newNode.Clone());
+
+            document.Save(xmlConfigPath);
+
+            this.Close();
         }
     }
 }
