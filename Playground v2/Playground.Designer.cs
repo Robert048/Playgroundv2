@@ -88,7 +88,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1650, 47);
+            this.menuStrip1.Size = new System.Drawing.Size(1652, 47);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -163,25 +163,25 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // viewToolStripMenuItem
@@ -216,7 +216,7 @@
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(20, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(1650, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1652, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -231,12 +231,11 @@
             // 
             // pnlPlayground
             // 
-            this.pnlPlayground.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPlayground.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPlayground.Location = new System.Drawing.Point(402, 72);
+            this.pnlPlayground.Location = new System.Drawing.Point(404, 72);
             this.pnlPlayground.Margin = new System.Windows.Forms.Padding(6);
             this.pnlPlayground.Name = "pnlPlayground";
-            this.pnlPlayground.Size = new System.Drawing.Size(1248, 655);
+            this.pnlPlayground.Size = new System.Drawing.Size(1248, 591);
             this.pnlPlayground.TabIndex = 4;
             // 
             // panel2
@@ -249,7 +248,7 @@
             this.panel2.MaximumSize = new System.Drawing.Size(400, 0);
             this.panel2.MinimumSize = new System.Drawing.Size(400, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 655);
+            this.panel2.Size = new System.Drawing.Size(400, 591);
             this.panel2.TabIndex = 5;
             // 
             // panel4
@@ -259,7 +258,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 597);
+            this.panel4.Size = new System.Drawing.Size(400, 533);
             this.panel4.TabIndex = 3;
             // 
             // tabControl
@@ -271,7 +270,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(400, 597);
+            this.tabControl.Size = new System.Drawing.Size(400, 533);
             this.tabControl.TabIndex = 0;
             // 
             // DB1
@@ -282,7 +281,7 @@
             this.DB1.Margin = new System.Windows.Forms.Padding(6);
             this.DB1.Name = "DB1";
             this.DB1.Padding = new System.Windows.Forms.Padding(6);
-            this.DB1.Size = new System.Drawing.Size(392, 559);
+            this.DB1.Size = new System.Drawing.Size(392, 495);
             this.DB1.TabIndex = 0;
             this.DB1.Text = "Aspen tech";
             this.DB1.UseVisualStyleBackColor = true;
@@ -294,7 +293,7 @@
             this.listBoxDB1.Location = new System.Drawing.Point(6, 44);
             this.listBoxDB1.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDB1.Name = "listBoxDB1";
-            this.listBoxDB1.Size = new System.Drawing.Size(380, 509);
+            this.listBoxDB1.Size = new System.Drawing.Size(380, 445);
             this.listBoxDB1.TabIndex = 2;
             // 
             // panel5
@@ -407,7 +406,7 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 597);
+            this.panel3.Location = new System.Drawing.Point(0, 533);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.MaximumSize = new System.Drawing.Size(400, 58);
             this.panel3.MinimumSize = new System.Drawing.Size(400, 58);
@@ -447,12 +446,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1650, 727);
+            this.ClientSize = new System.Drawing.Size(1652, 663);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlPlayground);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Playground";

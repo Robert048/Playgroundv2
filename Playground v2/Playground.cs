@@ -51,7 +51,7 @@ namespace Playground_v2
             listBoxDB1.Items.Add("swagger");
             listBoxDB1.Items.Add("dsf");
             listBoxDB1.Items.Add("fsdfsdf");
-            listBoxDB1.Items.Add("\xzx");
+            listBoxDB1.Items.Add("xzx");
             listBoxDB1.Items.Add("xcvxv");
         }
         private void updateListBox(string text)
