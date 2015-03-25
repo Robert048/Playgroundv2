@@ -28,3 +28,13 @@ C:\Users\Robert048\Source\Repos\Playgroundv22\Playground v2\obj\Debug\Playground
 C:\Users\Robert048\Source\Repos\Playgroundv22\Playground v2\obj\Debug\Playground v2.csproj.GenerateResource.Cache
 C:\Users\Robert048\Source\Repos\Playgroundv22\Playground v2\obj\Debug\Playground v2.exe
 C:\Users\Robert048\Source\Repos\Playgroundv22\Playground v2\obj\Debug\Playground v2.pdb
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\bin\Debug\Playground v2.exe.config
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\bin\Debug\Playground v2.exe
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\bin\Debug\Playground v2.pdb
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground_v2.DatabaseOptions.resources
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground_v2.Playground.resources
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground_v2.Properties.Resources.resources
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground v2.csproj.GenerateResource.Cache
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground v2.exe
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground v2.pdb
+C:\Users\Hakob\Source\Repos\Playgroundv26\Playground v2\obj\Debug\Playground v2.csprojResolveAssemblyReference.cache

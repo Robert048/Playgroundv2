@@ -26,6 +26,7 @@ namespace Playground_v2
         {
             InitializeComponent();
             database = new Database();
+            fillBox();
 
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
@@ -42,6 +43,17 @@ namespace Playground_v2
             }
         }
         
+        public void fillBox()
+        {
+            listBoxDB1.Items.Add("yolo");
+            listBoxDB1.Items.Add("rwer");
+            listBoxDB1.Items.Add("sffd");
+            listBoxDB1.Items.Add("swagger");
+            listBoxDB1.Items.Add("dsf");
+            listBoxDB1.Items.Add("fsdfsdf");
+            listBoxDB1.Items.Add("\xzx");
+            listBoxDB1.Items.Add("xcvxv");
+        }
         private void updateListBox(string text)
         {
             if(this.listBoxDB1.InvokeRequired)
