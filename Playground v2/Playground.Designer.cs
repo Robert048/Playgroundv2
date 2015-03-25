@@ -478,7 +478,6 @@
             this.Controls.Add(this.pnlPlaygroundBG);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Playground";

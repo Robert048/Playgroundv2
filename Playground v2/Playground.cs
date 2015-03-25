@@ -28,7 +28,7 @@ namespace Playground_v2
             InitializeComponent();
             database = new Database();
             
-            //fillBox();
+            fillBox();
 
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
