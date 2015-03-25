@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Playground));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +68,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnlPlaygroundBG.SuspendLayout();
@@ -240,18 +242,20 @@
             this.pnlPlaygroundBG.Controls.Add(this.pnlFormules);
             this.pnlPlaygroundBG.Controls.Add(this.pnlPlayground);
             this.pnlPlaygroundBG.Location = new System.Drawing.Point(398, 100);
-            this.pnlPlaygroundBG.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlPlaygroundBG.Margin = new System.Windows.Forms.Padding(6);
             this.pnlPlaygroundBG.Name = "pnlPlaygroundBG";
             this.pnlPlaygroundBG.Size = new System.Drawing.Size(1358, 762);
             this.pnlPlaygroundBG.TabIndex = 4;
             // 
             // pnlFormules
             // 
+            this.pnlFormules.AutoSize = true;
             this.pnlFormules.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFormules.Location = new System.Drawing.Point(782, 0);
-            this.pnlFormules.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlFormules.Location = new System.Drawing.Point(1108, 0);
+            this.pnlFormules.Margin = new System.Windows.Forms.Padding(6);
+            this.pnlFormules.MinimumSize = new System.Drawing.Size(250, 0);
             this.pnlFormules.Name = "pnlFormules";
-            this.pnlFormules.Size = new System.Drawing.Size(576, 762);
+            this.pnlFormules.Size = new System.Drawing.Size(250, 762);
             this.pnlFormules.TabIndex = 1;
             // 
             // pnlPlayground
@@ -259,8 +263,9 @@
             this.pnlPlayground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPlayground.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPlayground.Location = new System.Drawing.Point(0, 0);
-            this.pnlPlayground.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlPlayground.Margin = new System.Windows.Forms.Padding(6);
             this.pnlPlayground.Name = "pnlPlayground";
             this.pnlPlayground.Size = new System.Drawing.Size(770, 762);
             this.pnlPlayground.TabIndex = 0;
@@ -271,7 +276,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 72);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.MaximumSize = new System.Drawing.Size(400, 0);
             this.panel2.MinimumSize = new System.Drawing.Size(400, 0);
             this.panel2.Name = "panel2";
@@ -283,7 +288,7 @@
             this.panel4.Controls.Add(this.tabControl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(400, 732);
             this.panel4.TabIndex = 3;
@@ -294,7 +299,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(400, 732);
@@ -305,9 +310,9 @@
             this.DB1.Controls.Add(this.listBoxDB1);
             this.DB1.Controls.Add(this.panel5);
             this.DB1.Location = new System.Drawing.Point(4, 34);
-            this.DB1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DB1.Margin = new System.Windows.Forms.Padding(6);
             this.DB1.Name = "DB1";
-            this.DB1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DB1.Padding = new System.Windows.Forms.Padding(6);
             this.DB1.Size = new System.Drawing.Size(392, 694);
             this.DB1.TabIndex = 0;
             this.DB1.Text = "Aspen tech";
@@ -318,7 +323,7 @@
             this.listBoxDB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxDB1.FormattingEnabled = true;
             this.listBoxDB1.Location = new System.Drawing.Point(6, 44);
-            this.listBoxDB1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxDB1.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDB1.Name = "listBoxDB1";
             this.listBoxDB1.Size = new System.Drawing.Size(380, 644);
             this.listBoxDB1.TabIndex = 2;
@@ -329,7 +334,7 @@
             this.panel5.Controls.Add(this.searchBox);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(6, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.MaximumSize = new System.Drawing.Size(0, 38);
             this.panel5.MinimumSize = new System.Drawing.Size(0, 38);
             this.panel5.Name = "panel5";
@@ -343,7 +348,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox3.MaximumSize = new System.Drawing.Size(72, 38);
             this.pictureBox3.MinimumSize = new System.Drawing.Size(72, 38);
             this.pictureBox3.Name = "pictureBox3";
@@ -356,11 +361,11 @@
             // 
             this.searchBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.searchBox.Location = new System.Drawing.Point(84, 0);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(6);
             this.searchBox.MaximumSize = new System.Drawing.Size(296, 20);
             this.searchBox.MinimumSize = new System.Drawing.Size(296, 20);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(296, 20);
+            this.searchBox.Size = new System.Drawing.Size(296, 31);
             this.searchBox.TabIndex = 0;
             this.searchBox.Tag = "";
             this.searchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.search);
@@ -370,10 +375,10 @@
             this.tabPage2.Controls.Add(this.listBoxDB2);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPage2.Size = new System.Drawing.Size(392, 672);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6);
+            this.tabPage2.Size = new System.Drawing.Size(392, 694);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -383,9 +388,9 @@
             this.listBoxDB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxDB2.FormattingEnabled = true;
             this.listBoxDB2.Location = new System.Drawing.Point(6, 44);
-            this.listBoxDB2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxDB2.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDB2.Name = "listBoxDB2";
-            this.listBoxDB2.Size = new System.Drawing.Size(380, 622);
+            this.listBoxDB2.Size = new System.Drawing.Size(380, 644);
             this.listBoxDB2.TabIndex = 3;
             // 
             // panel6
@@ -394,7 +399,7 @@
             this.panel6.Controls.Add(this.searchBox2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(6, 6);
-            this.panel6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel6.Margin = new System.Windows.Forms.Padding(6);
             this.panel6.MaximumSize = new System.Drawing.Size(0, 38);
             this.panel6.MinimumSize = new System.Drawing.Size(0, 38);
             this.panel6.Name = "panel6";
@@ -408,7 +413,7 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.MaximumSize = new System.Drawing.Size(72, 38);
             this.pictureBox2.MinimumSize = new System.Drawing.Size(72, 38);
             this.pictureBox2.Name = "pictureBox2";
@@ -421,11 +426,11 @@
             // 
             this.searchBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.searchBox2.Location = new System.Drawing.Point(84, 0);
-            this.searchBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.searchBox2.Margin = new System.Windows.Forms.Padding(6);
             this.searchBox2.MaximumSize = new System.Drawing.Size(296, 20);
             this.searchBox2.MinimumSize = new System.Drawing.Size(296, 20);
             this.searchBox2.Name = "searchBox2";
-            this.searchBox2.Size = new System.Drawing.Size(296, 20);
+            this.searchBox2.Size = new System.Drawing.Size(296, 31);
             this.searchBox2.TabIndex = 0;
             // 
             // panel3
@@ -434,7 +439,7 @@
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 732);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.MaximumSize = new System.Drawing.Size(400, 58);
             this.panel3.MinimumSize = new System.Drawing.Size(400, 58);
             this.panel3.Name = "panel3";
@@ -445,7 +450,7 @@
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
             this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.MaximumSize = new System.Drawing.Size(200, 58);
             this.button2.MinimumSize = new System.Drawing.Size(200, 58);
             this.button2.Name = "button2";
@@ -459,7 +464,7 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Location = new System.Drawing.Point(200, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.MaximumSize = new System.Drawing.Size(200, 58);
             this.button1.MinimumSize = new System.Drawing.Size(200, 58);
             this.button1.Name = "button1";
@@ -479,7 +484,7 @@
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Playground";
             this.Text = "Playground";
             this.menuStrip1.ResumeLayout(false);
@@ -487,6 +492,7 @@
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.pnlPlaygroundBG.ResumeLayout(false);
+            this.pnlPlaygroundBG.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
@@ -544,5 +550,6 @@
         private System.Windows.Forms.CheckedListBox listBoxDB2;
         private System.Windows.Forms.Panel pnlFormules;
         private System.Windows.Forms.Panel pnlPlayground;
+        private System.Windows.Forms.Timer timer1;
     }
 }

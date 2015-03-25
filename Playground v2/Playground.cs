@@ -50,14 +50,11 @@ namespace Playground_v2
         //TODO delete
         public void fillBox()
         {
-            listBoxDB1.Items.Add("yolo");
-            listBoxDB1.Items.Add("rwer");
-            listBoxDB1.Items.Add("sffd");
-            listBoxDB1.Items.Add("swagger");
-            listBoxDB1.Items.Add("dsf");
-            listBoxDB1.Items.Add("fsdfsdf");
-            listBoxDB1.Items.Add("xzx");
-            listBoxDB1.Items.Add("xcvxv");
+            for(int i=1; i <= 50; i++)
+            {
+                string swag = i.ToString();
+                listBoxDB1.Items.Add(swag);
+            }
         }
 
         //fill the checkedlistbox with values from database
