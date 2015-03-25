@@ -39,3 +39,4 @@ C:\Users\Henrik\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.
 C:\Users\Henrik\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.exe
 C:\Users\Henrik\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground v2.pdb
 C:\Users\Henrik\Source\Repos\Playgroundv2\Playground v2\obj\Debug\Playground_v2.NewDatabase.resources
+C:\Users\Abstract Build\Source\Repos\Playgroundv2\Playground v2\bin\Debug\Playground v2.exe.config
