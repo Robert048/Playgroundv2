@@ -18,21 +18,24 @@ namespace Playground_v2
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
 
+        //list with selected machines
         List<dbObject> machines;
 
-        delegate void updateListBoxCallBack(String text);
+        delegate void updateListBoxCallBack();
 
         public Playground()
         {
             InitializeComponent();
             database = new Database();
-            fillBox();
+            
+            //fillBox();
 
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
             databaseConnectionThread.Start();
         }
 
+        //objects from database
         public class dbObject
         {
             public string naam { get; set; }
@@ -43,6 +46,8 @@ namespace Playground_v2
             }
         }
         
+
+        //TODO delete
         public void fillBox()
         {
             listBoxDB1.Items.Add("yolo");
@@ -51,15 +56,18 @@ namespace Playground_v2
             listBoxDB1.Items.Add("swagger");
             listBoxDB1.Items.Add("dsf");
             listBoxDB1.Items.Add("fsdfsdf");
-            listBoxDB1.Items.Add("\xzx");
+            listBoxDB1.Items.Add("xzx");
             listBoxDB1.Items.Add("xcvxv");
         }
-        private void updateListBox(string text)
+
+        //fill the checkedlistbox with values from database
+        private void updateListBox()
         {
+            //check to fix thread problems
             if(this.listBoxDB1.InvokeRequired)
             {
                 updateListBoxCallBack d = new updateListBoxCallBack(updateListBox);
-                this.Invoke(d, new object[] { text });
+                this.Invoke(d, new object[] {});
             }
             else
             {
@@ -86,8 +94,8 @@ namespace Playground_v2
         {
             if(database.databaseConnection())
             {
-                updateListBox("test");
-
+                //call update listbox method
+                updateListBox();
 
                 //close database connection
                 database.closeConnection();
@@ -133,6 +141,11 @@ namespace Playground_v2
             }
         }
 
+        /// <summary>
+        /// search method for the textbox in first tab
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void search(object sender, KeyEventArgs e)
         {
             listBoxDB1.BeginUpdate();
@@ -156,8 +169,14 @@ namespace Playground_v2
             database.getConnection().Close();
         }
 
+        /// <summary>
+        /// click the oke button below listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            //get checked items and place them in the list
             machines = new List<dbObject>();
             foreach (object itemChecked in listBoxDB1.CheckedItems)
             {
@@ -165,7 +184,7 @@ namespace Playground_v2
                 machines.Add(temp);
             }
 
-            //machines op panel doen
+            //add machines to playground
             int y = -51;
             int x = 0;
             foreach (dbObject machine in machines)
@@ -192,15 +211,13 @@ namespace Playground_v2
                 pnlPlayground.Controls.Add(panel);
 
             }
-
-
-            
-
-
-
-            
         }
 
+        /// <summary>
+        /// click on the clear button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             foreach (int i in listBoxDB1.CheckedIndices)
