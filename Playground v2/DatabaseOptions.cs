@@ -138,7 +138,7 @@ namespace Playground_v2
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewDatabase newDatabase = new NewDatabase();
+            NewDatabase newDatabase = new NewDatabase(xmlConfigPath);
             newDatabase.Show();
         }
 
