@@ -59,6 +59,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewDatabase.Designer.cs">
+      <DependentUpon>NewDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="pg2_testDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DatabaseOptions.resx">
       <DependentUpon>DatabaseOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDatabase.resx">
+      <DependentUpon>NewDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Playground.resx">
       <DependentUpon>Playground.cs</DependentUpon>
