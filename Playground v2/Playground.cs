@@ -150,25 +150,34 @@ namespace Playground_v2
         /// <param name="e"></param>
         private void search(object sender, KeyEventArgs e)
         {
-            listBoxDB1.BeginUpdate();
-            listBoxDB1.Items.Clear();
-            string searchText = searchBox.Text;
-            SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = database.getConnection();
-            cmd.Parameters.AddWithValue("@naam", searchText);
-            cmd.Parameters.AddWithValue("@wildcard", "%");
-            database.getConnection().Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while(dr.Read())
-            {   
-                for (int i = 0; i < dr.FieldCount; i++)
+            try
+            {
+                listBoxDB1.BeginUpdate();
+                listBoxDB1.Items.Clear();
+                string searchText = searchBox.Text;
+                SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = database.getConnection();
+                cmd.Parameters.AddWithValue("@naam", searchText);
+                cmd.Parameters.AddWithValue("@wildcard", "%");
+                database.getConnection().Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    listBoxDB1.Items.Add(dr[i].ToString());
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        listBoxDB1.Items.Add(dr[i].ToString());
+                    }
                 }
+                listBoxDB1.EndUpdate();
+                database.getConnection().Close();
             }
-            listBoxDB1.EndUpdate();
-            database.getConnection().Close();
+
+            catch(Exception)
+            {
+                searchBox.Text = "Database disabled.";
+                searchBox.Enabled = false;
+            }
         }
 
         /// <summary>
