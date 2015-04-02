@@ -53,6 +53,8 @@ namespace Playground_v2
 
         private void createDatabaseTabs()
         {
+            tabControl1.TabPages.Clear();
+
             var doc = new XmlDocument();
             doc.Load(xmlConfigPath);
 
@@ -70,7 +72,8 @@ namespace Playground_v2
                 TabPage tabPage = new TabPage();
                 tabPage.Name = connectionName;
                 tabPage.Text = connectionName;
-                tabPage.Text = providerName;
+                //tabPage.Text = connectionName;
+                //tabPage.Text = providerName;
 
                 string[] connectionStringItems = connectionString.Split(';');
 
@@ -138,8 +141,20 @@ namespace Playground_v2
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (xmlConfigPath == "")
+            {
+                MessageBox.Show("Please open the file first.");
+                return;
+            }
+
             NewDatabase newDatabase = new NewDatabase(xmlConfigPath);
+            newDatabase.FormClosed += newDatabase_FormClosed;
             newDatabase.Show();
+
+        }
+        private void newDatabase_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            createDatabaseTabs();
         }
 
     }
