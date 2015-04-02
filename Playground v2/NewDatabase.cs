@@ -71,9 +71,29 @@ namespace Playground_v2
                 i--;
             }
 
-            string tabName = keyValues["Databasename (Tab name)"];
-            string providerName = keyValues["Provider name"];
+            try
+            {
+                string tabName = keyValues["Databasename (Tab name)"];
+                string providerName = keyValues["Provider name"];
 
+                // check if tabname and providername are empty
+                if (String.IsNullOrEmpty(tabName) || String.IsNullOrEmpty(providerName))
+                {
+                    MessageBox.Show("You need to enter a TabName and Providername");
+                    return;
+                }
+
+                loopKeyValuePairs(keyValues, tabName, providerName);
+            }
+            catch
+            {
+                MessageBox.Show("You need to enter a TabName and Providername");
+                return;
+            }
+        }
+
+        private void loopKeyValuePairs(Dictionary<string, string> keyValues, string tabName, string providerName)
+        {
             StringBuilder connectionString = new StringBuilder();
 
             foreach (KeyValuePair<string, string> keyValuePair in keyValues)

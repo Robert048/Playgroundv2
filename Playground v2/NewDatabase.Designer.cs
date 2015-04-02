@@ -705,6 +705,8 @@
             this.Controls.Add(this.value1);
             this.Controls.Add(this.key2);
             this.Controls.Add(this.key1);
+            this.MaximumSize = new System.Drawing.Size(881, 480);
+            this.MinimumSize = new System.Drawing.Size(881, 480);
             this.Name = "NewDatabase";
             this.Text = "NewDatabase";
             this.Load += new System.EventHandler(this.NewDatabase_Load);
