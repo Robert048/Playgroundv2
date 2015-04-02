@@ -33,6 +33,11 @@ namespace Playground_v2
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
             databaseConnectionThread.Start();
+
+            pnlPlayground.AutoScroll = true;
+            pnlPlayground.HorizontalScroll.Enabled = true;
+            pnlPlayground.HorizontalScroll.Visible = true;
+            pnlPlayground.VerticalScroll.Visible = false;
         }
 
         //objects from database
@@ -181,33 +186,8 @@ namespace Playground_v2
                 machines.Add(temp);
             }
 
-            //add machines to playground
-            int y = -51;
-            int x = 0;
-            foreach (dbObject machine in machines)
-            {
-                y = y + 51;
-                if(y >= pnlPlayground.Height)
-                {
-                    y = 0;
-                    x = x + 101;
-                }
-                Label label = new Label();
-                Panel panel = new Panel();
-
-                panel.Controls.Add(label);
-                panel.Size = new Size(100, 50);
-                panel.BackColor = Color.Yellow;
-
-                label.Text = machine.naam;
-                label.AutoSize = true;
-                label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
-
-                panel.Location = new Point(10 + x, 10 + y);
-
-                pnlPlayground.Controls.Add(panel);
-
-            }
+            addMachines();
+            
         }
 
         /// <summary>
@@ -221,6 +201,49 @@ namespace Playground_v2
             {
                 listBoxDB1.SetItemCheckState(i, CheckState.Unchecked);
             }
+        }
+
+        private void pnlResize(object sender, EventArgs e)
+        {
+            addMachines();
+        }
+
+        private void addMachines()
+        {
+            try 
+	        {
+                pnlPlayground.Controls.Clear();
+		        //add machines to playground
+                int y = 0;
+                int x = 0;
+                foreach (dbObject machine in machines)
+                {
+                    if(y >= pnlPlayground.Height - 51)
+                    {
+                        y = 0;
+                        x = x + 101;
+                    }
+                    Label label = new Label();
+                    Panel panel = new Panel();
+
+                    panel.Controls.Add(label);
+                    panel.Size = new Size(100, 50);
+                    panel.BackColor = Color.Yellow;
+    
+                    label.Text = machine.naam;
+                    label.AutoSize = true;
+                    label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
+    
+                    panel.Location = new Point(10 + x, 10 + y);
+
+                    pnlPlayground.Controls.Add(panel);
+                    y = y + 51;
+	            }
+            }
+            catch (Exception)
+	        {		
+		        throw;
+	        }
         }
     }
 }
