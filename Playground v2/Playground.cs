@@ -33,6 +33,11 @@ namespace Playground_v2
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
             databaseConnectionThread.Start();
+
+            pnlPlayground.AutoScroll = true;
+            pnlPlayground.HorizontalScroll.Enabled = true;
+            pnlPlayground.HorizontalScroll.Visible = true;
+            pnlPlayground.VerticalScroll.Visible = false;
         }
 
         //objects from database
@@ -198,7 +203,7 @@ namespace Playground_v2
             }
         }
 
-        private void Resize(object sender, EventArgs e)
+        private void pnlResize(object sender, EventArgs e)
         {
             addMachines();
         }

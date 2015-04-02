@@ -265,7 +265,7 @@
             this.pnlPlayground.Name = "pnlPlayground";
             this.pnlPlayground.Size = new System.Drawing.Size(358, 333);
             this.pnlPlayground.TabIndex = 0;
-            this.pnlPlayground.Resize += new System.EventHandler(this.Resize);
+            this.pnlPlayground.Resize += new System.EventHandler(this.pnlResize);
             // 
             // panel2
             // 
