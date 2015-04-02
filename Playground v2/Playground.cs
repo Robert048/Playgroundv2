@@ -251,8 +251,13 @@ namespace Playground_v2
             }
             catch (Exception)
 	        {		
-		        throw;
+		       // throw;
 	        }
+        }
+
+        private void clearPlaygroundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlPlayground.Controls.Clear();
         }
     }
 }
