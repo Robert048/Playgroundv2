@@ -49,6 +49,7 @@
             this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddFormula = new System.Windows.Forms.ToolStripButton();
             this.pnlPlaygroundBG = new System.Windows.Forms.Panel();
             this.pnlFormules = new System.Windows.Forms.Panel();
             this.pnlPlayground = new System.Windows.Forms.Panel();
@@ -69,7 +70,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnAddFormula = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnlPlaygroundBG.SuspendLayout();
@@ -236,6 +236,15 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // btnAddFormula
+            // 
+            this.btnAddFormula.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddFormula.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormula.Image")));
+            this.btnAddFormula.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddFormula.Name = "btnAddFormula";
+            this.btnAddFormula.Size = new System.Drawing.Size(23, 22);
+            this.btnAddFormula.Click += new System.EventHandler(this.btnAddFormula_Click);
+            // 
             // pnlPlaygroundBG
             // 
             this.pnlPlaygroundBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -308,7 +317,7 @@
             this.DB1.Controls.Add(this.panel5);
             this.DB1.Location = new System.Drawing.Point(4, 22);
             this.DB1.Name = "DB1";
-            this.DB1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.DB1.Padding = new System.Windows.Forms.Padding(3);
             this.DB1.Size = new System.Drawing.Size(192, 280);
             this.DB1.TabIndex = 0;
             this.DB1.Text = "Aspen tech";
@@ -368,8 +377,8 @@
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 291);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 280);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -380,7 +389,7 @@
             this.listBoxDB2.FormattingEnabled = true;
             this.listBoxDB2.Location = new System.Drawing.Point(3, 23);
             this.listBoxDB2.Name = "listBoxDB2";
-            this.listBoxDB2.Size = new System.Drawing.Size(186, 265);
+            this.listBoxDB2.Size = new System.Drawing.Size(186, 254);
             this.listBoxDB2.TabIndex = 3;
             // 
             // panel6
@@ -457,15 +466,6 @@
             this.button1.Text = "Oke";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnAddFormula
-            // 
-            this.btnAddFormula.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAddFormula.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormula.Image")));
-            this.btnAddFormula.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddFormula.Name = "btnAddFormula";
-            this.btnAddFormula.Size = new System.Drawing.Size(23, 22);
-            this.btnAddFormula.Click += new System.EventHandler(this.btnAddFormula_Click);
             // 
             // Playground
             // 
