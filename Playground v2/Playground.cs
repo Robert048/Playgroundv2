@@ -41,18 +41,6 @@ namespace Playground_v2
             pnlPlayground.VerticalScroll.Visible = false;
         }
 
-        //objects from database
-        public class dbObject
-        {
-            public string naam { get; set; }
-
-            public dbObject(string naam)
-            {
-                this.naam = naam;
-            }
-        }
-        
-
         //TODO delete
         public void fillBox()
         {
@@ -269,7 +257,7 @@ namespace Playground_v2
 
         private void newFormulaForm()
         {
-            NewFormula newFormula = new NewFormula();
+            NewFormula newFormula = new NewFormula(machines);
             Application.Run(newFormula);
         }
     }

@@ -53,6 +53,7 @@
     <Compile Include="DatabaseOptions.Designer.cs">
       <DependentUpon>DatabaseOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="dbObject.cs" />
     <Compile Include="NewFormula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewDatabase.resx">
       <DependentUpon>NewDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewFormula.resx">
+      <DependentUpon>NewFormula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Playground.resx">
       <DependentUpon>Playground.cs</DependentUpon>
