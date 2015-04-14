@@ -17,6 +17,7 @@ namespace Playground_v2
         Database database;
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
+        Thread newFormula;
 
         //list with selected machines
         List<dbObject> machines;
@@ -258,6 +259,18 @@ namespace Playground_v2
         private void clearPlaygroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlPlayground.Controls.Clear();
+        }
+
+        private void btnAddFormula_Click(object sender, EventArgs e)
+        {
+            newFormula = new Thread(new ThreadStart(newFormulaForm));
+            newFormula.Start();
+        }
+
+        private void newFormulaForm()
+        {
+            NewFormula newFormula = new NewFormula();
+            Application.Run(newFormula);
         }
     }
 }

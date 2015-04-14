@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Playground_v2
 {
-    public partial class Form1 : Form
+    public partial class NewFormula : Form
     {
-        public Form1()
+        public NewFormula()
         {
             InitializeComponent();
         }
