@@ -30,20 +30,27 @@ namespace Playground_v2
 
         private void fillComboBox()
         {
-            cbMachine.Items.Clear();
-            foreach (dbObject machine in machines)
+            try
             {
-                cbMachine.Items.Add(machine.naam);
-            }
-            cbOperators.Items.Add(">");
-            cbOperators.Items.Add("<");
-            cbOperators.Items.Add("=");
-            cbOperators.Items.Add(">=");
-            cbOperators.Items.Add("<=");
-            cbOperators.Items.Add("≠");
+                cbMachine.Items.Clear();
+                foreach (dbObject machine in machines)
+                {
+                    cbMachine.Items.Add(machine.naam);
+                }
+                cbOperators.Items.Add(">");
+                cbOperators.Items.Add("<");
+                cbOperators.Items.Add("=");
+                cbOperators.Items.Add(">=");
+                cbOperators.Items.Add("<=");
+                cbOperators.Items.Add("≠");
 
-            cbAndOr.Items.Add("And");
-            cbAndOr.Items.Add("Or");
+                cbAndOr.Items.Add("And");
+                cbAndOr.Items.Add("Or");
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("No machines available");
+            }
 
         }
 

@@ -93,7 +93,8 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(681, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 47);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -108,50 +109,50 @@
             this.updateDatabaseToolStripMenuItem,
             this.closeToolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 39);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.exitToolStripMenuItem.Text = "Save as...";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.closeToolStripMenuItem.Text = "User";
             // 
             // autorisatieToolStripMenuItem
             // 
             this.autorisatieToolStripMenuItem.Name = "autorisatieToolStripMenuItem";
-            this.autorisatieToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.autorisatieToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.autorisatieToolStripMenuItem.Text = "Autorisatie";
             // 
             // updateDatabaseToolStripMenuItem
             // 
             this.updateDatabaseToolStripMenuItem.Name = "updateDatabaseToolStripMenuItem";
-            this.updateDatabaseToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.updateDatabaseToolStripMenuItem.Size = new System.Drawing.Size(279, 40);
             this.updateDatabaseToolStripMenuItem.Text = "Update database";
             this.updateDatabaseToolStripMenuItem.Click += new System.EventHandler(this.updateDatabaseToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem1
             // 
             this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
+            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(279, 40);
             this.closeToolStripMenuItem1.Text = "Close";
             // 
             // editToolStripMenuItem
@@ -162,31 +163,31 @@
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 39);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(151, 40);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // viewToolStripMenuItem
@@ -195,13 +196,13 @@
             this.clearPlaygroundToolStripMenuItem,
             this.gridToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(80, 39);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // clearPlaygroundToolStripMenuItem
             // 
             this.clearPlaygroundToolStripMenuItem.Name = "clearPlaygroundToolStripMenuItem";
-            this.clearPlaygroundToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.clearPlaygroundToolStripMenuItem.Size = new System.Drawing.Size(280, 40);
             this.clearPlaygroundToolStripMenuItem.Text = "Clear Playground";
             this.clearPlaygroundToolStripMenuItem.Click += new System.EventHandler(this.clearPlaygroundToolStripMenuItem_Click);
             // 
@@ -209,7 +210,7 @@
             // 
             this.gridToolStripMenuItem.CheckOnClick = true;
             this.gridToolStripMenuItem.Name = "gridToolStripMenuItem";
-            this.gridToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.gridToolStripMenuItem.Size = new System.Drawing.Size(280, 40);
             this.gridToolStripMenuItem.Text = "Grid enabled";
             this.gridToolStripMenuItem.Click += new System.EventHandler(this.gridToolStripMenuItem_Click);
             // 
@@ -219,11 +220,11 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.btnAddFormula});
-            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Location = new System.Drawing.Point(0, 47);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(10, 0, 1, 0);
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(20, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(681, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1362, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -252,9 +253,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPlaygroundBG.Controls.Add(this.pnlFormules);
             this.pnlPlaygroundBG.Controls.Add(this.pnlPlayground);
-            this.pnlPlaygroundBG.Location = new System.Drawing.Point(199, 52);
+            this.pnlPlaygroundBG.Location = new System.Drawing.Point(398, 100);
+            this.pnlPlaygroundBG.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlPlaygroundBG.Name = "pnlPlaygroundBG";
-            this.pnlPlaygroundBG.Size = new System.Drawing.Size(482, 333);
+            this.pnlPlaygroundBG.Size = new System.Drawing.Size(964, 640);
             this.pnlPlaygroundBG.TabIndex = 4;
             // 
             // pnlFormules
@@ -262,10 +264,11 @@
             this.pnlFormules.AutoSize = true;
             this.pnlFormules.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlFormules.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFormules.Location = new System.Drawing.Point(357, 0);
-            this.pnlFormules.MinimumSize = new System.Drawing.Size(125, 0);
+            this.pnlFormules.Location = new System.Drawing.Point(714, 0);
+            this.pnlFormules.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlFormules.MinimumSize = new System.Drawing.Size(250, 0);
             this.pnlFormules.Name = "pnlFormules";
-            this.pnlFormules.Size = new System.Drawing.Size(125, 333);
+            this.pnlFormules.Size = new System.Drawing.Size(250, 640);
             this.pnlFormules.TabIndex = 1;
             // 
             // pnlPlayground
@@ -274,8 +277,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPlayground.Location = new System.Drawing.Point(0, 0);
+            this.pnlPlayground.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlPlayground.Name = "pnlPlayground";
-            this.pnlPlayground.Size = new System.Drawing.Size(358, 333);
+            this.pnlPlayground.Size = new System.Drawing.Size(716, 640);
             this.pnlPlayground.TabIndex = 0;
             this.pnlPlayground.Resize += new System.EventHandler(this.pnlResize);
             // 
@@ -284,11 +288,12 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 49);
-            this.panel2.MaximumSize = new System.Drawing.Size(200, 0);
-            this.panel2.MinimumSize = new System.Drawing.Size(200, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.MaximumSize = new System.Drawing.Size(400, 0);
+            this.panel2.MinimumSize = new System.Drawing.Size(400, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 336);
+            this.panel2.Size = new System.Drawing.Size(400, 668);
             this.panel2.TabIndex = 5;
             // 
             // panel4
@@ -296,8 +301,9 @@
             this.panel4.Controls.Add(this.tabControl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 306);
+            this.panel4.Size = new System.Drawing.Size(400, 610);
             this.panel4.TabIndex = 3;
             // 
             // tabControl
@@ -306,19 +312,21 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(200, 306);
+            this.tabControl.Size = new System.Drawing.Size(400, 610);
             this.tabControl.TabIndex = 0;
             // 
             // DB1
             // 
             this.DB1.Controls.Add(this.listBoxDB1);
             this.DB1.Controls.Add(this.panel5);
-            this.DB1.Location = new System.Drawing.Point(4, 22);
+            this.DB1.Location = new System.Drawing.Point(4, 34);
+            this.DB1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.DB1.Name = "DB1";
-            this.DB1.Padding = new System.Windows.Forms.Padding(3);
-            this.DB1.Size = new System.Drawing.Size(192, 280);
+            this.DB1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DB1.Size = new System.Drawing.Size(392, 572);
             this.DB1.TabIndex = 0;
             this.DB1.Text = "Aspen tech";
             this.DB1.UseVisualStyleBackColor = true;
@@ -327,9 +335,10 @@
             // 
             this.listBoxDB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxDB1.FormattingEnabled = true;
-            this.listBoxDB1.Location = new System.Drawing.Point(3, 23);
+            this.listBoxDB1.Location = new System.Drawing.Point(6, 44);
+            this.listBoxDB1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listBoxDB1.Name = "listBoxDB1";
-            this.listBoxDB1.Size = new System.Drawing.Size(186, 254);
+            this.listBoxDB1.Size = new System.Drawing.Size(380, 522);
             this.listBoxDB1.TabIndex = 2;
             // 
             // panel5
@@ -337,11 +346,12 @@
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.searchBox);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.MaximumSize = new System.Drawing.Size(0, 20);
-            this.panel5.MinimumSize = new System.Drawing.Size(0, 20);
+            this.panel5.Location = new System.Drawing.Point(6, 6);
+            this.panel5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel5.MaximumSize = new System.Drawing.Size(0, 38);
+            this.panel5.MinimumSize = new System.Drawing.Size(0, 38);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(186, 20);
+            this.panel5.Size = new System.Drawing.Size(380, 38);
             this.panel5.TabIndex = 1;
             // 
             // pictureBox3
@@ -351,10 +361,11 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.MaximumSize = new System.Drawing.Size(36, 20);
-            this.pictureBox3.MinimumSize = new System.Drawing.Size(36, 20);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox3.MaximumSize = new System.Drawing.Size(72, 38);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(72, 38);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 20);
+            this.pictureBox3.Size = new System.Drawing.Size(72, 38);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -362,11 +373,12 @@
             // searchBox
             // 
             this.searchBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.searchBox.Location = new System.Drawing.Point(36, 0);
-            this.searchBox.MaximumSize = new System.Drawing.Size(150, 20);
-            this.searchBox.MinimumSize = new System.Drawing.Size(150, 20);
+            this.searchBox.Location = new System.Drawing.Point(84, 0);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.searchBox.MaximumSize = new System.Drawing.Size(296, 20);
+            this.searchBox.MinimumSize = new System.Drawing.Size(296, 20);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(150, 20);
+            this.searchBox.Size = new System.Drawing.Size(296, 20);
             this.searchBox.TabIndex = 0;
             this.searchBox.Tag = "";
             this.searchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.search);
@@ -375,10 +387,11 @@
             // 
             this.tabPage2.Controls.Add(this.listBoxDB2);
             this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 280);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Size = new System.Drawing.Size(392, 550);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -387,9 +400,10 @@
             // 
             this.listBoxDB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxDB2.FormattingEnabled = true;
-            this.listBoxDB2.Location = new System.Drawing.Point(3, 23);
+            this.listBoxDB2.Location = new System.Drawing.Point(6, 44);
+            this.listBoxDB2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listBoxDB2.Name = "listBoxDB2";
-            this.listBoxDB2.Size = new System.Drawing.Size(186, 254);
+            this.listBoxDB2.Size = new System.Drawing.Size(380, 500);
             this.listBoxDB2.TabIndex = 3;
             // 
             // panel6
@@ -397,11 +411,12 @@
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Controls.Add(this.searchBox2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.MaximumSize = new System.Drawing.Size(0, 20);
-            this.panel6.MinimumSize = new System.Drawing.Size(0, 20);
+            this.panel6.Location = new System.Drawing.Point(6, 6);
+            this.panel6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel6.MaximumSize = new System.Drawing.Size(0, 38);
+            this.panel6.MinimumSize = new System.Drawing.Size(0, 38);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(186, 20);
+            this.panel6.Size = new System.Drawing.Size(380, 38);
             this.panel6.TabIndex = 2;
             // 
             // pictureBox2
@@ -411,10 +426,11 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.MaximumSize = new System.Drawing.Size(36, 20);
-            this.pictureBox2.MinimumSize = new System.Drawing.Size(36, 20);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.MaximumSize = new System.Drawing.Size(72, 38);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(72, 38);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 20);
+            this.pictureBox2.Size = new System.Drawing.Size(72, 38);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -422,11 +438,12 @@
             // searchBox2
             // 
             this.searchBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.searchBox2.Location = new System.Drawing.Point(36, 0);
-            this.searchBox2.MaximumSize = new System.Drawing.Size(150, 20);
-            this.searchBox2.MinimumSize = new System.Drawing.Size(150, 20);
+            this.searchBox2.Location = new System.Drawing.Point(84, 0);
+            this.searchBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.searchBox2.MaximumSize = new System.Drawing.Size(296, 20);
+            this.searchBox2.MinimumSize = new System.Drawing.Size(296, 20);
             this.searchBox2.Name = "searchBox2";
-            this.searchBox2.Size = new System.Drawing.Size(150, 20);
+            this.searchBox2.Size = new System.Drawing.Size(296, 20);
             this.searchBox2.TabIndex = 0;
             // 
             // panel3
@@ -434,21 +451,23 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 306);
-            this.panel3.MaximumSize = new System.Drawing.Size(200, 30);
-            this.panel3.MinimumSize = new System.Drawing.Size(200, 30);
+            this.panel3.Location = new System.Drawing.Point(0, 610);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.MaximumSize = new System.Drawing.Size(400, 58);
+            this.panel3.MinimumSize = new System.Drawing.Size(400, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 30);
+            this.panel3.Size = new System.Drawing.Size(400, 58);
             this.panel3.TabIndex = 2;
             // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
             this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.MaximumSize = new System.Drawing.Size(100, 30);
-            this.button2.MinimumSize = new System.Drawing.Size(100, 30);
+            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button2.MaximumSize = new System.Drawing.Size(200, 58);
+            this.button2.MinimumSize = new System.Drawing.Size(200, 58);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
+            this.button2.Size = new System.Drawing.Size(200, 58);
             this.button2.TabIndex = 0;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
@@ -457,11 +476,12 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(100, 0);
-            this.button1.MaximumSize = new System.Drawing.Size(100, 30);
-            this.button1.MinimumSize = new System.Drawing.Size(100, 30);
+            this.button1.Location = new System.Drawing.Point(200, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.MaximumSize = new System.Drawing.Size(200, 58);
+            this.button1.MinimumSize = new System.Drawing.Size(200, 58);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.Size = new System.Drawing.Size(200, 58);
             this.button1.TabIndex = 1;
             this.button1.Text = "Oke";
             this.button1.UseVisualStyleBackColor = true;
@@ -469,14 +489,15 @@
             // 
             // Playground
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 385);
+            this.ClientSize = new System.Drawing.Size(1362, 740);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlPlaygroundBG);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Playground";
             this.Text = "Playground";
             this.menuStrip1.ResumeLayout(false);
