@@ -14,11 +14,13 @@ namespace Playground_v2
     {
 
         List<dbObject> machines;
+        List<string> formulas;
         private int y;
         ComboBox cbMachine;
         ComboBox cbOperators;
         TextBox txtValue;
         ComboBox cbAndOr;
+        int amount = 0;
 
         public NewFormula(List<dbObject> machines)
         {
@@ -88,6 +90,8 @@ namespace Playground_v2
             fillComboBox();
             y = y + 30;
 
+            amount++;
+
             txtWarningMessage.Location = new Point(3, y);
             btnNewFormula.Location = new Point(286, y);
         }
@@ -100,7 +104,23 @@ namespace Playground_v2
 
         private void btnNewFormula_Click(object sender, EventArgs e)
         {
+            int x = 0;
+            string formula = " ";
 
+            List<string> formulaList = new List<string>(formulas);
+
+           while(x < amount)
+           {
+         
+               formula = cbMachine.Text + "  " + cbOperators.Text + "  " + txtValue.Text;
+               formulaList.Add(formula);
+               x++;
+           }
+
+          foreach(String f in formulaList)
+          {
+              MessageBox.Show(f);
+          }
         }
     }
 }
