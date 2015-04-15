@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,13 +15,18 @@ namespace Playground_v2
     {
 
         List<dbObject> machines;
-        List<string> formulas;
+        ArrayList formulaList = new ArrayList();
         private int y;
-        ComboBox cbMachine;
-        ComboBox cbOperators;
-        TextBox txtValue;
+        //ComboBox cbMachine;
+        //ComboBox cbOperators;
+        int lines = 0;
+        Dictionary<int, ComboBox> cbMachine = new Dictionary<int, ComboBox>();
+        Dictionary<int, ComboBox> cbOperators = new Dictionary<int, ComboBox>();
+        Dictionary<int,TextBox> txtValue = new Dictionary<int,TextBox>();
         ComboBox cbAndOr;
         int amount = 0;
+        int index = 0;
+
 
         public NewFormula(List<dbObject> machines)
         {
@@ -30,21 +36,39 @@ namespace Playground_v2
             newLine();
         }
 
-        private void fillComboBox()
+        private void fillComboBox(ComboBox cbMachineNew, ComboBox cbOperatorsNew)
         {
             try
             {
-                cbMachine.Items.Clear();
+                cbMachineNew.Items.Clear();
+                cbOperatorsNew.Items.Add(">");
+                cbOperatorsNew.Items.Add("<");
+                cbOperatorsNew.Items.Add("=");
+                cbOperatorsNew.Items.Add(">=");
+                cbOperatorsNew.Items.Add("<=");
+                cbOperatorsNew.Items.Add("≠");
+
                 foreach (dbObject machine in machines)
                 {
-                    cbMachine.Items.Add(machine.naam);
+                    cbMachineNew.Items.Add(machine.naam);
+
                 }
-                cbOperators.Items.Add(">");
-                cbOperators.Items.Add("<");
-                cbOperators.Items.Add("=");
-                cbOperators.Items.Add(">=");
-                cbOperators.Items.Add("<=");
-                cbOperators.Items.Add("≠");
+
+                cbMachine.Add(index, cbMachineNew);
+
+                cbOperators.Add(index, cbOperatorsNew);
+
+
+
+
+                //cbOperators.Add(0, ">");
+                //cbOperators.Add(1, "<");
+                //cbOperators.Add(2, "=");
+                //cbOperators.Add(3, ">=");
+                //cbOperators.Add(4, "<=");
+                //cbOperators.Add(5, "≠");
+                
+
 
                 cbAndOr.Items.Add("And");
                 cbAndOr.Items.Add("Or");
@@ -53,6 +77,8 @@ namespace Playground_v2
             {
                 MessageBox.Show("No machines available");
             }
+
+            index++;
 
         }
 
@@ -64,21 +90,24 @@ namespace Playground_v2
 
         private void newLine()
         {
-            cbMachine = new ComboBox();
-            cbOperators = new ComboBox();
-            txtValue = new TextBox();
+            ComboBox cbMachineNew = new ComboBox();
+            ComboBox cbOperatorsNew = new ComboBox();
+            TextBox txtValueNew = new TextBox();
             cbAndOr = new ComboBox();
 
-            cbMachine.Location = new Point(3, y);
-            pnlNewFormula.Controls.Add(cbMachine);
+            cbMachineNew.Location = new Point(3, y);
+            pnlNewFormula.Controls.Add(cbMachineNew);
 
-            cbOperators.Location = new Point(130, y);
-            cbOperators.Size = new Size(45, 21);
-            pnlNewFormula.Controls.Add(cbOperators);
+            cbOperatorsNew.Location = new Point(130, y);
+            cbOperatorsNew.Size = new Size(45, 21);
+            pnlNewFormula.Controls.Add(cbOperatorsNew);
+    
 
-            txtValue.Location = new Point(181, y);
-            txtValue.Size = new Size(100, 21);
-            pnlNewFormula.Controls.Add(txtValue);
+                txtValueNew.Location = new Point(181, y);
+                txtValueNew.Size = new Size(100, 21);
+                txtValue.Add(lines, txtValueNew);
+                pnlNewFormula.Controls.Add(txtValueNew);
+       
 
             if (y > 30)
             {
@@ -87,10 +116,11 @@ namespace Playground_v2
                 pnlNewFormula.Controls.Add(cbAndOr);
             }
 
-            fillComboBox();
+            fillComboBox(cbMachineNew, cbOperatorsNew);
             y = y + 30;
 
             amount++;
+            lines++;
 
             txtWarningMessage.Location = new Point(3, y);
             btnNewFormula.Location = new Point(286, y);
@@ -107,19 +137,20 @@ namespace Playground_v2
             int x = 0;
             string formula = " ";
 
-            List<string> formulaList = new List<string>(formulas);
+            var formulaList = new ArrayList();
 
            while(x < amount)
            {
          
-               formula = cbMachine.Text + "  " + cbOperators.Text + "  " + txtValue.Text;
+      
+               formula = cbMachine[x].Text + "  " + cbOperators[x].Text + "  " + txtValue[x].Text;
                formulaList.Add(formula);
                x++;
            }
 
-          foreach(String f in formulaList)
+          foreach(object f in formulaList)
           {
-              MessageBox.Show(f);
+              MessageBox.Show(f.ToString());
           }
         }
     }
