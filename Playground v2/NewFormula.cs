@@ -15,7 +15,7 @@ namespace Playground_v2
     {
 
         List<dbObject> machines;
-        ArrayList formulaList = new ArrayList();
+        List<string> formulaList = new List<string>();
         private int y;
         Dictionary<int, ComboBox> cbMachine = new Dictionary<int, ComboBox>();
         Dictionary<int, ComboBox> cbOperators = new Dictionary<int, ComboBox>();
@@ -122,33 +122,25 @@ namespace Playground_v2
             txtWarningMessage.TextAlign = HorizontalAlignment.Left;
         }
 
+        /// <summary>
+        /// method for new formula button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNewFormula_Click(object sender, EventArgs e)
         {
             int x = 0;
             string formula = " ";
-            var formulaList = new ArrayList();
 
-           while(x < amount)
-           {
-               formula = cbAndOr[x].Text + "\n" + cbMachine[x].Text + "  " + cbOperators[x].Text + "  " + txtValue[x].Text;
-               formulaList.Add(formula);
-               x++;
-           }
-
-           (System.Windows.Forms.Application.OpenForms["Playground"] as Playground).addFormulas(formulaList);
-
-
-           //foreach (object formule in formulaList)
-           //{
-           //    MessageBox.Show(formule.ToString());
-
-
-           //}
+            while (x < amount)
+            {
+                formula = cbAndOr[x].Text + "\n" + cbMachine[x].Text + "  " + cbOperators[x].Text + "  " + txtValue[x].Text;
+                formulaList.Add(formula);
+                x++;
+            }
             
-
-
-
-            
+            //send formulaList to playground
+            (System.Windows.Forms.Application.OpenForms["Playground"] as Playground).addFormulas(formulaList);
         }
     }
 }

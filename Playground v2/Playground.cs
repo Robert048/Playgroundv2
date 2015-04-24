@@ -23,9 +23,9 @@ namespace Playground_v2
 
         //list with selected machines
         List<dbObject> machines;
+        List<string> formulas;
 
         delegate void updateListBoxCallBack();
-        delegate void addFormulasCallBack(ArrayList formulas);
 
 
         public Playground()
@@ -100,12 +100,14 @@ namespace Playground_v2
             databaseConnectionThread.Abort();
         }
 
-        public void addFormulas(ArrayList formulas)
+        public void addFormulas(List<string> NewFormulas)
         {
+            formulas = new List<string>();
+            formulas = NewFormulas;
 
             pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Clear()));
 
-            //add machines to playground
+            //add formulas to playground
             int y = 0;
             int x = 0;
 
@@ -132,7 +134,7 @@ namespace Playground_v2
                 label.Text = formula.ToString();
                 label.AutoSize = false;
                 label.TextAlign = ContentAlignment.MiddleCenter;
-                //label.Dock = DockStyle.Fill;
+                
                 label.AutoSize = true;
                 label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
 
@@ -317,40 +319,52 @@ namespace Playground_v2
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TextWriter tw = new StreamWriter("SavedList.txt");
 
-            foreach (dbObject machine in machines)
+            TextWriter tw = new StreamWriter("SavedFormulas.txt");
+
+            foreach (string formula in formulas)
             {
-                tw.WriteLine(machine.naam);
+                tw.WriteLine(formula);
             }
+
             tw.Close();
         }
 
+        /// <summary>
+        /// The file > open button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //open a file
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Title = "Search for the saved file";
             openFileDialog1.Filter = "saved files (*.txt)|*.txt";
             openFileDialog1.ShowDialog();
 
             String savedFilePath = openFileDialog1.FileName;
-            List<string> temp = new List<string>();
+            List<string> tempList = new List<string>();
 
+            //reading the file and adding the strings to the tempList
             using (StreamReader r = new StreamReader(savedFilePath))
             {
                 string line;
                 while ((line = r.ReadLine()) != null)
                 {
-                    temp.Add(line);
+                    tempList.Add(line);
                 }
             }
 
-            foreach (string naam in temp)
+            //get naam from the tempList
+            foreach (string naam in tempList)
             {
-                dbObject temp2 = new dbObject(naam);
-                machines.Add(temp2);
+                string temp = naam;
+                formulas.Add(temp);
             }
-            addMachines();
+
+            //add formulas to playground
+            addFormulas(formulas);
         }
     }
 }
