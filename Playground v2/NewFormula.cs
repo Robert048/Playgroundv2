@@ -22,7 +22,6 @@ namespace Playground_v2
         Dictionary<int,TextBox> txtValue = new Dictionary<int,TextBox>();
         Dictionary<int, ComboBox> cbAndOr = new Dictionary<int, ComboBox>();
 
-        //ComboBox cbAndOr;
         int amount = 0;
         int index = 0;
         int lines = 0;
@@ -92,11 +91,10 @@ namespace Playground_v2
             cbOperatorsNew.Size = new Size(45, 21);
             pnlNewFormula.Controls.Add(cbOperatorsNew);
     
-
-                txtValueNew.Location = new Point(181, y);
-                txtValueNew.Size = new Size(100, 21);
-                txtValue.Add(lines, txtValueNew);
-                pnlNewFormula.Controls.Add(txtValueNew);
+            txtValueNew.Location = new Point(181, y);
+            txtValueNew.Size = new Size(100, 21);
+            txtValue.Add(lines, txtValueNew);
+            pnlNewFormula.Controls.Add(txtValueNew);
        
 
             if (y > 30)
