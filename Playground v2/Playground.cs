@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -17,17 +19,20 @@ namespace Playground_v2
         Database database;
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
+        Thread newFormula;
 
         //list with selected machines
         List<dbObject> machines;
+        List<string> formulas;
 
         delegate void updateListBoxCallBack();
+
 
         public Playground()
         {
             InitializeComponent();
             database = new Database();
-            
+
             fillBox();
 
             //make a thread for the database connection
@@ -40,22 +45,10 @@ namespace Playground_v2
             pnlPlayground.VerticalScroll.Visible = false;
         }
 
-        //objects from database
-        public class dbObject
-        {
-            public string naam { get; set; }
-
-            public dbObject(string naam)
-            {
-                this.naam = naam;
-            }
-        }
-        
-
         //TODO delete
         public void fillBox()
         {
-            for(int i=1; i <= 50; i++)
+            for (int i = 1; i <= 50; i++)
             {
                 string swag = i.ToString();
                 listBoxDB1.Items.Add(swag);
@@ -66,10 +59,10 @@ namespace Playground_v2
         private void updateListBox()
         {
             //check to fix thread problems
-            if(this.listBoxDB1.InvokeRequired)
+            if (this.listBoxDB1.InvokeRequired)
             {
                 updateListBoxCallBack d = new updateListBoxCallBack(updateListBox);
-                this.Invoke(d, new object[] {});
+                this.Invoke(d, new object[] { });
             }
             else
             {
@@ -82,19 +75,19 @@ namespace Playground_v2
                     while (oReader.Read())
                     {
                         //add items
-                        listBoxDB1.Items.Add(oReader["id"].ToString()+ " - " + oReader["naam"].ToString());
+                        listBoxDB1.Items.Add(oReader["id"].ToString() + " - " + oReader["naam"].ToString());
                     }
-                } 
+                }
 
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
             }
-            
+
         }
         //database connection thread
         private void connection()
         {
-            if(database.databaseConnection())
+            if (database.databaseConnection())
             {
                 //call update listbox method
                 updateListBox();
@@ -102,9 +95,61 @@ namespace Playground_v2
                 //close database connection
                 database.closeConnection();
             }
-            
+
             //close thread
             databaseConnectionThread.Abort();
+        }
+
+        public void addFormulas(List<string> NewFormulas)
+        {
+            formulas = new List<string>();
+            formulas = NewFormulas;
+
+            pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Clear()));
+
+            //add formulas to playground
+            int y = 0;
+            int x = 0;
+
+            Label txtFormula = new Label();
+            txtFormula.Text = "Formule deel 1:";
+            pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Add(txtFormula)));
+
+
+
+            foreach (object formula in formulas)
+            {
+                if (y >= pnlFormules.Height - 51)
+                {
+                    y = 0;
+                    x = x + 101;
+                }
+                Label label = new Label();
+                Panel panel = new Panel();
+
+                panel.Controls.Add(label);
+                panel.Size = new Size(366, 37);
+                panel.BackColor = Color.LightSteelBlue;
+
+                label.Text = formula.ToString();
+                label.AutoSize = false;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                
+                label.AutoSize = true;
+                label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
+
+                panel.Location = new Point(10 + x, 5 + y);
+
+                pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Add(panel)));
+
+                y = y + 25;
+            }
+
+            Label txtFormulaEnd = new Label();
+            txtFormulaEnd.Text = "Einde van formule";
+            txtFormulaEnd.Location = new Point(0, y + 20);
+            pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Add(txtFormulaEnd)));
+
         }
 
         /// <summary>
@@ -116,7 +161,7 @@ namespace Playground_v2
             databaseOptionsThread = new Thread(new ThreadStart(openForm));
             databaseOptionsThread.Start();
         }
-        
+
         /// <summary>
         /// Opens the form for the database settings
         /// </summary>
@@ -150,25 +195,34 @@ namespace Playground_v2
         /// <param name="e"></param>
         private void search(object sender, KeyEventArgs e)
         {
-            listBoxDB1.BeginUpdate();
-            listBoxDB1.Items.Clear();
-            string searchText = searchBox.Text;
-            SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = database.getConnection();
-            cmd.Parameters.AddWithValue("@naam", searchText);
-            cmd.Parameters.AddWithValue("@wildcard", "%");
-            database.getConnection().Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while(dr.Read())
-            {   
-                for (int i = 0; i < dr.FieldCount; i++)
+            try
+            {
+                listBoxDB1.BeginUpdate();
+                listBoxDB1.Items.Clear();
+                string searchText = searchBox.Text;
+                SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = database.getConnection();
+                cmd.Parameters.AddWithValue("@naam", searchText);
+                cmd.Parameters.AddWithValue("@wildcard", "%");
+                database.getConnection().Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    listBoxDB1.Items.Add(dr[i].ToString());
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        listBoxDB1.Items.Add(dr[i].ToString());
+                    }
                 }
+                listBoxDB1.EndUpdate();
+                database.getConnection().Close();
             }
-            listBoxDB1.EndUpdate();
-            database.getConnection().Close();
+
+            catch (Exception)
+            {
+                searchBox.Text = "Database disabled.";
+                searchBox.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -187,7 +241,7 @@ namespace Playground_v2
             }
 
             addMachines();
-            
+
         }
 
         /// <summary>
@@ -210,15 +264,15 @@ namespace Playground_v2
 
         private void addMachines()
         {
-            try 
-	        {
+            try
+            {
                 pnlPlayground.Controls.Clear();
-		        //add machines to playground
+                //add machines to playground
                 int y = 0;
                 int x = 0;
                 foreach (dbObject machine in machines)
                 {
-                    if(y >= pnlPlayground.Height - 51)
+                    if (y >= pnlPlayground.Height - 51)
                     {
                         y = 0;
                         x = x + 101;
@@ -229,21 +283,88 @@ namespace Playground_v2
                     panel.Controls.Add(label);
                     panel.Size = new Size(100, 50);
                     panel.BackColor = Color.Yellow;
-    
+
                     label.Text = machine.naam;
                     label.AutoSize = true;
                     label.Location = new Point((panel.Width / 2) - (label.Width / 2), 10);
-    
+
                     panel.Location = new Point(10 + x, 10 + y);
 
                     pnlPlayground.Controls.Add(panel);
                     y = y + 51;
-	            }
+                }
             }
             catch (Exception)
-	        {		
-		        throw;
-	        }
+            {
+                // throw;
+            }
+        }
+
+        private void clearPlaygroundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlPlayground.Controls.Clear();
+        }
+
+        private void btnAddFormula_Click(object sender, EventArgs e)
+        {
+            newFormula = new Thread(new ThreadStart(newFormulaForm));
+            newFormula.Start();
+        }
+
+        private void newFormulaForm()
+        {
+            NewFormula newFormula = new NewFormula(machines);
+            Application.Run(newFormula);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            TextWriter tw = new StreamWriter("SavedFormulas.txt");
+
+            foreach (string formula in formulas)
+            {
+                tw.WriteLine(formula);
+            }
+
+            tw.Close();
+        }
+
+        /// <summary>
+        /// The file > open button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //open a file
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Title = "Search for the saved file";
+            openFileDialog1.Filter = "saved files (*.txt)|*.txt";
+            openFileDialog1.ShowDialog();
+
+            String savedFilePath = openFileDialog1.FileName;
+            List<string> tempList = new List<string>();
+
+            //reading the file and adding the strings to the tempList
+            using (StreamReader r = new StreamReader(savedFilePath))
+            {
+                string line;
+                while ((line = r.ReadLine()) != null)
+                {
+                    tempList.Add(line);
+                }
+            }
+
+            //get naam from the tempList
+            foreach (string naam in tempList)
+            {
+                string temp = naam;
+                formulas.Add(temp);
+            }
+
+            //add formulas to playground
+            addFormulas(formulas);
         }
     }
 }

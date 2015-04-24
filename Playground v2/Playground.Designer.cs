@@ -49,6 +49,7 @@
             this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddFormula = new System.Windows.Forms.ToolStripButton();
             this.pnlPlaygroundBG = new System.Windows.Forms.Panel();
             this.pnlFormules = new System.Windows.Forms.Panel();
             this.pnlPlayground = new System.Windows.Forms.Panel();
@@ -115,12 +116,14 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -202,6 +205,7 @@
             this.clearPlaygroundToolStripMenuItem.Name = "clearPlaygroundToolStripMenuItem";
             this.clearPlaygroundToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.clearPlaygroundToolStripMenuItem.Text = "Clear Playground";
+            this.clearPlaygroundToolStripMenuItem.Click += new System.EventHandler(this.clearPlaygroundToolStripMenuItem_Click);
             // 
             // gridToolStripMenuItem
             // 
@@ -215,7 +219,8 @@
             // 
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.btnAddFormula});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(10, 0, 1, 0);
@@ -233,6 +238,15 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // btnAddFormula
+            // 
+            this.btnAddFormula.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddFormula.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFormula.Image")));
+            this.btnAddFormula.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddFormula.Name = "btnAddFormula";
+            this.btnAddFormula.Size = new System.Drawing.Size(23, 22);
+            this.btnAddFormula.Click += new System.EventHandler(this.btnAddFormula_Click);
+            // 
             // pnlPlaygroundBG
             // 
             this.pnlPlaygroundBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -248,7 +262,7 @@
             // pnlFormules
             // 
             this.pnlFormules.AutoSize = true;
-            this.pnlFormules.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlFormules.BackColor = System.Drawing.SystemColors.Control;
             this.pnlFormules.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFormules.Location = new System.Drawing.Point(357, 0);
             this.pnlFormules.MinimumSize = new System.Drawing.Size(125, 0);
@@ -531,5 +545,6 @@
         private System.Windows.Forms.Panel pnlFormules;
         private System.Windows.Forms.Panel pnlPlayground;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripButton btnAddFormula;
     }
 }
