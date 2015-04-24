@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -260,44 +259,6 @@ namespace Playground_v2
         {
             NewFormula newFormula = new NewFormula(machines);
             Application.Run(newFormula);
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TextWriter tw = new StreamWriter("SavedList.txt");
-
-            foreach (dbObject machine in machines)
-            {
-                tw.WriteLine(machine.naam);
-            }
-            tw.Close();
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Title = "Search for the saved file";
-            openFileDialog1.Filter = "saved files (*.txt)|*.txt";
-            openFileDialog1.ShowDialog();
-            
-            String savedFilePath = openFileDialog1.FileName;
-            List<string> temp = new List<string>();
-
-            using (StreamReader r = new StreamReader(savedFilePath))
-            {
-                string line;
-                while ((line = r.ReadLine()) != null)
-                {
-                    temp.Add(line);
-                }
-            }
-
-            foreach (string naam in temp)
-            {
-                dbObject temp2 = new dbObject(naam);
-                machines.Add(temp2);
-            }
-            addMachines();
         }
     }
 }
