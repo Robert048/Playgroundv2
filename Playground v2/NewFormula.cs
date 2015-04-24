@@ -17,15 +17,15 @@ namespace Playground_v2
         List<dbObject> machines;
         ArrayList formulaList = new ArrayList();
         private int y;
-        //ComboBox cbMachine;
-        //ComboBox cbOperators;
-        int lines = 0;
         Dictionary<int, ComboBox> cbMachine = new Dictionary<int, ComboBox>();
         Dictionary<int, ComboBox> cbOperators = new Dictionary<int, ComboBox>();
         Dictionary<int,TextBox> txtValue = new Dictionary<int,TextBox>();
-        ComboBox cbAndOr;
+        Dictionary<int, ComboBox> cbAndOr = new Dictionary<int, ComboBox>();
+
+        //ComboBox cbAndOr;
         int amount = 0;
         int index = 0;
+        int lines = 0;
 
 
         public NewFormula(List<dbObject> machines)
@@ -36,7 +36,7 @@ namespace Playground_v2
             newLine();
         }
 
-        private void fillComboBox(ComboBox cbMachineNew, ComboBox cbOperatorsNew)
+        private void fillComboBox(ComboBox cbMachineNew, ComboBox cbOperatorsNew, ComboBox cbAndOrNew)
         {
             try
             {
@@ -55,23 +55,13 @@ namespace Playground_v2
                 }
 
                 cbMachine.Add(index, cbMachineNew);
-
                 cbOperators.Add(index, cbOperatorsNew);
 
+                cbAndOrNew.Items.Add("And");
+                cbAndOrNew.Items.Add("Or");
 
+                cbAndOr.Add(index, cbAndOrNew);
 
-
-                //cbOperators.Add(0, ">");
-                //cbOperators.Add(1, "<");
-                //cbOperators.Add(2, "=");
-                //cbOperators.Add(3, ">=");
-                //cbOperators.Add(4, "<=");
-                //cbOperators.Add(5, "≠");
-                
-
-
-                cbAndOr.Items.Add("And");
-                cbAndOr.Items.Add("Or");
             }
             catch(NullReferenceException)
             {
@@ -93,7 +83,7 @@ namespace Playground_v2
             ComboBox cbMachineNew = new ComboBox();
             ComboBox cbOperatorsNew = new ComboBox();
             TextBox txtValueNew = new TextBox();
-            cbAndOr = new ComboBox();
+            ComboBox cbAndOrNew = new ComboBox();
 
             cbMachineNew.Location = new Point(3, y);
             pnlNewFormula.Controls.Add(cbMachineNew);
@@ -111,12 +101,12 @@ namespace Playground_v2
 
             if (y > 30)
             {
-                cbAndOr.Location = new Point(287, y - 30);
-                cbAndOr.Size = new Size(70, 21);
-                pnlNewFormula.Controls.Add(cbAndOr);
+                cbAndOrNew.Location = new Point(287, y - 30);
+                cbAndOrNew.Size = new Size(70, 21);
+                pnlNewFormula.Controls.Add(cbAndOrNew);
             }
 
-            fillComboBox(cbMachineNew, cbOperatorsNew);
+            fillComboBox(cbMachineNew, cbOperatorsNew, cbAndOrNew);
             y = y + 30;
 
             amount++;
@@ -136,22 +126,29 @@ namespace Playground_v2
         {
             int x = 0;
             string formula = " ";
-
             var formulaList = new ArrayList();
 
            while(x < amount)
            {
-         
-      
-               formula = cbMachine[x].Text + "  " + cbOperators[x].Text + "  " + txtValue[x].Text;
+               formula = cbAndOr[x].Text + "\n" + cbMachine[x].Text + "  " + cbOperators[x].Text + "  " + txtValue[x].Text;
                formulaList.Add(formula);
                x++;
            }
 
-          foreach(object f in formulaList)
-          {
-              MessageBox.Show(f.ToString());
-          }
+           (System.Windows.Forms.Application.OpenForms["Playground"] as Playground).addFormulas(formulaList);
+
+
+           //foreach (object formule in formulaList)
+           //{
+           //    MessageBox.Show(formule.ToString());
+
+
+           //}
+            
+
+
+
+            
         }
     }
 }
