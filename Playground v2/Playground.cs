@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -33,7 +34,7 @@ namespace Playground_v2
             InitializeComponent();
             database = new Database();
 
-            fillBox();
+            //fillBox();
 
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
@@ -66,21 +67,36 @@ namespace Playground_v2
             }
             else
             {
+                ////fill checked list box
+                //listBoxDB1.BeginUpdate();
+                //string query = "Select * from Table_1";
+                //SqlCommand command = new SqlCommand(query, database.getConnection());
+                //using (SqlDataReader oReader = command.ExecuteReader())
+                //{
+                //    while (oReader.Read())
+                //    {
+                //        //add items
+                //        listBoxDB1.Items.Add(oReader["id"].ToString() + " - " + oReader["naam"].ToString());
+                //    }
+                //}
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
-                string query = "Select * from Table_1";
-                SqlCommand command = new SqlCommand(query, database.getConnection());
-                using (SqlDataReader oReader = command.ExecuteReader())
+                string query = "select * from IP_PVDEF";
+                OdbcDataAdapter dadapter = new OdbcDataAdapter();
+                dadapter.SelectCommand = new OdbcCommand(query, database.getConnection());
+                DataTable table = new DataTable();
+                using (OdbcDataReader oReader = dadapter.SelectCommand.ExecuteReader())
                 {
                     while (oReader.Read())
                     {
                         //add items
-                        listBoxDB1.Items.Add(oReader["id"].ToString() + " - " + oReader["naam"].ToString());
+                        listBoxDB1.Items.Add(oReader["NAME"].ToString());
                     }
                 }
 
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
+                searchBox.Text = listBoxDB1.Items.Count.ToString();
             }
 
         }
@@ -200,13 +216,13 @@ namespace Playground_v2
                 listBoxDB1.BeginUpdate();
                 listBoxDB1.Items.Clear();
                 string searchText = searchBox.Text;
-                SqlCommand cmd = new SqlCommand("SELECT naam FROM Table_1 WHERE naam LIKE (@wildcard)+(@naam)+(@wildcard)");
+                OdbcCommand cmd = new OdbcCommand("SELECT NAME FROM IP_PVDEF WHERE IP_#_OF_TREND_VALUES = 2");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = database.getConnection();
-                cmd.Parameters.AddWithValue("@naam", searchText);
-                cmd.Parameters.AddWithValue("@wildcard", "%");
+                cmd.Parameters.Add("@naam", OdbcType.VarChar);
+                cmd.Parameters.Add("@wildcard", OdbcType.Text).Value = "%";
                 database.getConnection().Open();
-                SqlDataReader dr = cmd.ExecuteReader();
+                OdbcDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
@@ -218,10 +234,11 @@ namespace Playground_v2
                 database.getConnection().Close();
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
                 searchBox.Text = "Database disabled.";
                 searchBox.Enabled = false;
+                MessageBox.Show(ex + "");
             }
         }
 
