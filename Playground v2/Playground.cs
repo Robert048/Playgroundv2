@@ -21,6 +21,7 @@ namespace Playground_v2
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
         Thread newFormula;
+        Thread databaseRefresh;
 
         //list with selected machines
         List<dbObject> machines;
@@ -34,11 +35,12 @@ namespace Playground_v2
             InitializeComponent();
             database = new Database();
 
-            //fillBox();
-
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
             databaseConnectionThread.Start();
+
+            databaseRefresh = new Thread(new ThreadStart(databaseUpdate));
+            databaseRefresh.Start();
 
             pnlPlayground.AutoScroll = true;
             pnlPlayground.HorizontalScroll.Enabled = true;
@@ -46,14 +48,19 @@ namespace Playground_v2
             pnlPlayground.VerticalScroll.Visible = false;
         }
 
-        //TODO delete
-        public void fillBox()
+        private void databaseUpdate()
         {
-            for (int i = 1; i <= 50; i++)
-            {
-                string swag = i.ToString();
-                listBoxDB1.Items.Add(swag);
-            }
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 3000;
+            timer.Elapsed += tick;
+            timer.Enabled = true;
+        }
+
+        private void tick(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            updateListBox();
+            //playground updaten
+            //fomules updaten
         }
 
         //fill the checkedlistbox with values from database
@@ -67,18 +74,6 @@ namespace Playground_v2
             }
             else
             {
-                ////fill checked list box
-                //listBoxDB1.BeginUpdate();
-                //string query = "Select * from Table_1";
-                //SqlCommand command = new SqlCommand(query, database.getConnection());
-                //using (SqlDataReader oReader = command.ExecuteReader())
-                //{
-                //    while (oReader.Read())
-                //    {
-                //        //add items
-                //        listBoxDB1.Items.Add(oReader["id"].ToString() + " - " + oReader["naam"].ToString());
-                //    }
-                //}
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
                 string query = "select * from IP_PVDEF";
@@ -96,10 +91,10 @@ namespace Playground_v2
 
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
-                searchBox.Text = listBoxDB1.Items.Count.ToString();
             }
 
         }
+
         //database connection thread
         private void connection()
         {
