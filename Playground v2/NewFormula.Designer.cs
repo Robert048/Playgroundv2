@@ -84,6 +84,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewFormula";
             this.Text = "Add a new formula";
+            this.TopMost = true;
             this.pnlNewFormula.ResumeLayout(false);
             this.pnlNewFormula.PerformLayout();
             this.ResumeLayout(false);

@@ -51,7 +51,7 @@ namespace Playground_v2
         private void databaseUpdate()
         {
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 3000;
+            timer.Interval = 30000;
             timer.Elapsed += tick;
             timer.Enabled = true;
         }
