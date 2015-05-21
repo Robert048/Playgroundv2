@@ -13,10 +13,12 @@ namespace Playground_v2
 {
     public partial class NewFormula : Form
     {
-
+        //lists
         List<dbObject> machines;
         List<string> formulaList = new List<string>();
+        //Y coordinate
         private int y;
+        //dictionaries
         Dictionary<int, ComboBox> cbMachine = new Dictionary<int, ComboBox>();
         Dictionary<int, ComboBox> cbOperators = new Dictionary<int, ComboBox>();
         Dictionary<int,TextBox> txtValue = new Dictionary<int,TextBox>();
@@ -26,7 +28,10 @@ namespace Playground_v2
         int index = 0;
         int lines = 0;
 
-
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="machines">List with machines</param>
         public NewFormula(List<dbObject> machines)
         {
             InitializeComponent();
@@ -35,6 +40,12 @@ namespace Playground_v2
             newLine();
         }
 
+        /// <summary>
+        /// method to fill the comboBoxes
+        /// </summary>
+        /// <param name="cbMachineNew">comboBox for machine</param>
+        /// <param name="cbOperatorsNew">comboBox for the operator</param>
+        /// <param name="cbAndOrNew">ComboBox for "and" or "or"</param>
         private void fillComboBox(ComboBox cbMachineNew, ComboBox cbOperatorsNew, ComboBox cbAndOrNew)
         {
             try
@@ -71,18 +82,29 @@ namespace Playground_v2
 
         }
 
+        /// <summary>
+        /// button method to make new fomula line
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNewLine_Click(object sender, EventArgs e)
         {
             newLine();
             btnNewLine.Location = new Point(287, y - 30);
         }
 
+        /// <summary>
+        /// method to add a new formula line
+        /// </summary>
         private void newLine()
         {
+            //make the objects
             ComboBox cbMachineNew = new ComboBox();
             ComboBox cbOperatorsNew = new ComboBox();
             TextBox txtValueNew = new TextBox();
             ComboBox cbAndOrNew = new ComboBox();
+
+            //give objects a position and add them
 
             cbMachineNew.Location = new Point(3, y);
             pnlNewFormula.Controls.Add(cbMachineNew);
@@ -109,11 +131,17 @@ namespace Playground_v2
 
             amount++;
             lines++;
-
+            
+            //moves text field and button downwards
             txtWarningMessage.Location = new Point(3, y);
             btnNewFormula.Location = new Point(286, y);
         }
 
+        /// <summary>
+        /// method to clear the Warning text box if clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtWarningMessageClick(object sender, EventArgs e)
         {
             txtWarningMessage.Text = "";

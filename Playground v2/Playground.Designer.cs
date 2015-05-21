@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Playground));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +68,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnlPlaygroundBG.SuspendLayout();
@@ -544,7 +542,6 @@
         private System.Windows.Forms.CheckedListBox listBoxDB2;
         private System.Windows.Forms.Panel pnlFormules;
         private System.Windows.Forms.Panel pnlPlayground;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton btnAddFormula;
     }
 }
