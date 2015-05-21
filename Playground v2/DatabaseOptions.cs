@@ -20,16 +20,19 @@ namespace Playground_v2
         // stores the current xml config path
         private string xmlConfigPath = "";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DatabaseOptions"/> class.
+        /// </summary>
         public DatabaseOptions()
         {
             InitializeComponent();
-            setUpTabControl();
+            SetUpTabControl();
         }
 
         /// <summary>
         /// Tabcontrol setup
         /// </summary>
-        private void setUpTabControl()
+        private void SetUpTabControl()
         {
             tabControl1.Dock = DockStyle.Fill;
         }
@@ -49,11 +52,12 @@ namespace Playground_v2
             // create new tabs
             if (dialogResult == System.Windows.Forms.DialogResult.OK)
             {
+                // create new cache for all database options
                 databaseConnections = new Dictionary<string, string>();
-
+                // set new config file path
                 xmlConfigPath = openFileDialog1.FileName;
-
-                createDatabaseTabs();
+                // create database option tabs
+                CreateDatabaseTabs();
             }
 
         }
@@ -61,7 +65,7 @@ namespace Playground_v2
         /// <summary>
         /// Creating new tabs for the tab control
         /// </summary>
-        private void createDatabaseTabs()
+        private void CreateDatabaseTabs()
         {
             // remove all old tabs
             tabControl1.TabPages.Clear();
@@ -73,21 +77,27 @@ namespace Playground_v2
             // loop through "add" nodes
             foreach (XmlNode node in doc.SelectNodes("//add"))
             {
+                // check if node object is null
+                if (node == null) continue;
+
                 // get the connectionname, connectionstring and providername attributes
-                string connectionName = node.Attributes["name"].Value;
-                string connectionString = node.Attributes["connectionString"].Value;
-                string providerName = node.Attributes["providerName"].Value;
+                var connectionName = node.Attributes["name"].Value;
+                var connectionString = node.Attributes["connectionString"].Value;
+                var providerName = node.Attributes["providerName"].Value;
 
                 // add to databaseconnection dictionary
                 if (!databaseConnections.ContainsKey(connectionName))
                 {
+                    // add the connection to cache
                     databaseConnections.Add(connectionName, connectionString);
                 }
 
                 // Create a new TabPage with connectionname
-                TabPage tabPage = new TabPage();
-                tabPage.Name = connectionName;
-                tabPage.Text = connectionName;
+                TabPage tabPage = new TabPage
+                {
+                    Name = connectionName,
+                    Text = connectionName
+                };
 
                 // Split all connectionstring items by ";"
                 string[] connectionStringItems = connectionString.Split(';');
@@ -99,17 +109,20 @@ namespace Playground_v2
                 // Loop through all connectionstring items
                 foreach (string item in connectionStringItems)
                 {
-                    string key = "";
-                    string value = "";
+                    var key = "";
+                    var value = "";
 
-                    // get the key/value pairs
+                    // try to split the key an value
                     try
                     {
+                        // get the key (value [0] in front of "=")
                         key = item.Split('=')[0];
+                        // get the value (value [1] after "=")
                         value = item.Split('=')[1];
                     }
                     catch
                     {
+                        // exception: set to null
                         key = "";
                         value = "";
                     }
@@ -117,9 +130,13 @@ namespace Playground_v2
                     // create new label with the key as text
                     if (key.Length > 0)
                     {
-                        Label label1 = new Label();
-                        label1.Text = key;
-                        label1.Location = new Point(0, currentY);
+                        // create new label object and set location and text
+                        var label1 = new Label
+                        {
+                            Text = key,
+                            Location = new Point(0, currentY)
+                        };
+
                         // add the label to the tabpage
                         tabPage.Controls.Add(label1);
                     }
@@ -127,8 +144,8 @@ namespace Playground_v2
                     // Create new TextBox with value as text
                     if (value.Length > 0)
                     {
-                        TextBox textBox1 = new TextBox();
-                        Size size = TextRenderer.MeasureText(item, textBox1.Font);
+                        var textBox1 = new TextBox();
+                        var size = TextRenderer.MeasureText(item, textBox1.Font);
                         textBox1.Width = size.Width;
                         textBox1.Text = value;
                         textBox1.Location = new Point(currentX, currentY);
@@ -152,12 +169,19 @@ namespace Playground_v2
         /// <returns>The DialogState result as DialogResult object</returns>
         private DialogResult STAShowDialog(FileDialog dialog)
         {
-            DialogState state = new DialogState();
-            state.dialog = dialog;
+            // create new dialog state instance
+            var state = new DialogState
+            {
+                dialog = dialog
+            };
+
+            // set threading for file open dialog
             System.Threading.Thread t = new System.Threading.Thread(state.ThreadProcShowDialog);
             t.SetApartmentState(System.Threading.ApartmentState.STA);
             t.Start();
             t.Join();
+            
+            // return the result
             return state.result;
         }
 
@@ -184,7 +208,7 @@ namespace Playground_v2
         /// </summary>
         private void newDatabase_FormClosed(object sender, FormClosedEventArgs e)
         {
-            createDatabaseTabs();
+            CreateDatabaseTabs();
         }
 
     }

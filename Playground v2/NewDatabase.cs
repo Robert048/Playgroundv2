@@ -14,7 +14,7 @@ namespace Playground_v2
     public partial class NewDatabase : Form
     {
         // temp config path
-        private string xmlConfigPath;
+        private readonly string xmlConfigPath;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NewDatabase"/> class.
@@ -52,11 +52,7 @@ namespace Playground_v2
         /// <param name="controls">The controls.</param>
         private void CountBoxes(ref int textboxCount, Control.ControlCollection controls)
         {
-            foreach (Control control in controls)
-            {
-                if (control is TextBox)
-                    textboxCount++;
-            }
+            textboxCount += controls.OfType<TextBox>().Count();
         }
 
         /// <summary>
