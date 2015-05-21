@@ -13,15 +13,12 @@ namespace Playground_v2
     {
         string connectionString = null;
         OdbcConnection conn;
-        //SqlConnection conn;
 
         public Database()   
         {
         //get connectionString from the app.config and open the connection.
         connectionString = ConfigurationManager.ConnectionStrings["Aspen tech"].ConnectionString;
         conn = new OdbcConnection(connectionString);
-        //connectionString = ConfigurationManager.ConnectionStrings["test"].ConnectionString;
-        //conn = new SqlConnection(connectionString);
         }
 
         /// <summary>
@@ -52,6 +49,10 @@ namespace Playground_v2
             conn.Close();
         }
 
+        /// <summary>
+        /// method to return the connection
+        /// </summary>
+        /// <returns>connection</returns>
         public OdbcConnection getConnection()
         {
             return conn;

@@ -17,7 +17,10 @@ namespace Playground_v2
 {
     public partial class Playground : Form
     {
+        //Database object
         Database database;
+
+        //threads
         Thread databaseConnectionThread;
         Thread databaseOptionsThread;
         Thread newFormula;
@@ -27,8 +30,8 @@ namespace Playground_v2
         List<dbObject> machines;
         List<string> formulas;
 
+        //method for invoke required
         delegate void updateListBoxCallBack();
-
 
         public Playground()
         {
@@ -38,29 +41,39 @@ namespace Playground_v2
             //make a thread for the database connection
             databaseConnectionThread = new Thread(new ThreadStart(connection));
             databaseConnectionThread.Start();
-
+            //make a thread for the database refresh
             databaseRefresh = new Thread(new ThreadStart(databaseUpdate));
             databaseRefresh.Start();
 
+            //add scrollbars to playground panel
             pnlPlayground.AutoScroll = true;
             pnlPlayground.HorizontalScroll.Enabled = true;
             pnlPlayground.HorizontalScroll.Visible = true;
             pnlPlayground.VerticalScroll.Visible = false;
         }
 
+        /// <summary>
+        /// method to update the database items
+        /// </summary>
         private void databaseUpdate()
         {
+            //TODO finishing
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = 30000;
             timer.Elapsed += tick;
             timer.Enabled = true;
         }
 
+        /// <summary>
+        /// tick method for the timer in databaseUpdate()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tick(object sender, System.Timers.ElapsedEventArgs e)
         {
             updateListBox();
-            //playground updaten
-            //fomules updaten
+            //TODO playground updaten
+            //TODO fomules updaten
         }
 
         //fill the checkedlistbox with values from database
@@ -76,6 +89,7 @@ namespace Playground_v2
             {
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
+                //IP_PVDEF = table name on ASPEN TECH database
                 string query = "select * from IP_PVDEF";
                 OdbcDataAdapter dadapter = new OdbcDataAdapter();
                 dadapter.SelectCommand = new OdbcCommand(query, database.getConnection());
@@ -84,7 +98,7 @@ namespace Playground_v2
                 {
                     while (oReader.Read())
                     {
-                        //add items
+                        //add items to checked listbox
                         listBoxDB1.Items.Add(oReader["NAME"].ToString());
                     }
                 }
@@ -95,7 +109,9 @@ namespace Playground_v2
 
         }
 
-        //database connection thread
+        /// <summary>
+        /// database connection thread
+        /// </summary>
         private void connection()
         {
             if (database.databaseConnection())
@@ -111,8 +127,13 @@ namespace Playground_v2
             databaseConnectionThread.Abort();
         }
 
+        /// <summary>
+        /// Add formulas to the playground
+        /// </summary>
+        /// <param name="NewFormulas"></param>
         public void addFormulas(List<string> NewFormulas)
         {
+            //make new list and fill it
             formulas = new List<string>();
             formulas = NewFormulas;
 
@@ -122,12 +143,12 @@ namespace Playground_v2
             int y = 0;
             int x = 0;
 
+            //make label
             Label txtFormula = new Label();
             txtFormula.Text = "Formule deel 1:";
             pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Add(txtFormula)));
 
-
-
+            //loop thru formulas List and displays them on panel
             foreach (object formula in formulas)
             {
                 if (y >= pnlFormules.Height - 51)
@@ -191,10 +212,12 @@ namespace Playground_v2
         {
             if (gridToolStripMenuItem.Checked)
             {
+                //TODO something useful
                 MessageBox.Show("check");
             }
             else
             {
+                //TODO something useful
                 MessageBox.Show("uncheck");
             }
         }
@@ -208,23 +231,29 @@ namespace Playground_v2
         {
             try
             {
+                //begin update for checked listbox
                 listBoxDB1.BeginUpdate();
                 listBoxDB1.Items.Clear();
                 string searchText = searchBox.Text;
+                //query to get the searched value
+                //TODO query fixen
                 OdbcCommand cmd = new OdbcCommand("SELECT NAME FROM IP_PVDEF WHERE IP_#_OF_TREND_VALUES = 2");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = database.getConnection();
                 cmd.Parameters.Add("@naam", OdbcType.VarChar);
                 cmd.Parameters.Add("@wildcard", OdbcType.Text).Value = "%";
+                //open database connection
                 database.getConnection().Open();
                 OdbcDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
+                        //add items to checked listbox
                         listBoxDB1.Items.Add(dr[i].ToString());
                     }
                 }
+                //end checked listbox update and close database connection
                 listBoxDB1.EndUpdate();
                 database.getConnection().Close();
             }
@@ -238,7 +267,7 @@ namespace Playground_v2
         }
 
         /// <summary>
-        /// click the oke button below listbox
+        /// click tihe oke button below lstbox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -251,9 +280,7 @@ namespace Playground_v2
                 dbObject temp = new dbObject(itemChecked.ToString());
                 machines.Add(temp);
             }
-
             addMachines();
-
         }
 
         /// <summary>
@@ -269,11 +296,19 @@ namespace Playground_v2
             }
         }
 
+        /// <summary>
+        /// method the reorganize objects on playground if the size of the panel changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlResize(object sender, EventArgs e)
         {
             addMachines();
         }
 
+        /// <summary>
+        /// add machine objects to the playground panel
+        /// </summary>
         private void addMachines()
         {
             try
@@ -282,6 +317,7 @@ namespace Playground_v2
                 //add machines to playground
                 int y = 0;
                 int x = 0;
+                //loops thru machines List and add them to the panel
                 foreach (dbObject machine in machines)
                 {
                     if (y >= pnlPlayground.Height - 51)
@@ -312,23 +348,43 @@ namespace Playground_v2
             }
         }
 
+        /// <summary>
+        /// View > clear playground
+        /// clear the playground panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearPlaygroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlPlayground.Controls.Clear();
         }
 
+        /// <summary>
+        /// start a new thread if the add formula button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFormula_Click(object sender, EventArgs e)
         {
             newFormula = new Thread(new ThreadStart(newFormulaForm));
             newFormula.Start();
         }
 
+        /// <summary>
+        /// start the newFormula form
+        /// </summary>
         private void newFormulaForm()
         {
             NewFormula newFormula = new NewFormula(machines);
             Application.Run(newFormula);
         }
 
+        /// <summary>
+        /// file > save
+        /// saves the formulas to a .txt file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -344,6 +400,7 @@ namespace Playground_v2
 
         /// <summary>
         /// The file > open button
+        /// opens the .txt file with formulas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
