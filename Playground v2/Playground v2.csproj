@@ -57,7 +57,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -82,6 +82,7 @@
       <DependentUpon>DatabaseOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="dbObject.cs" />
+    <Compile Include="Encryption.cs" />
     <Compile Include="NewFormula.cs">
       <SubType>Form</SubType>
     </Compile>

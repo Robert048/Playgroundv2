@@ -137,8 +137,11 @@ namespace Playground_v2
                     connectionString.Append(keyValuePair.Key + "=" + keyValuePair.Value + ";");
             }
 
+            //encrypt string
+            String encryptedString = Encryption.EncryptStringAES(connectionString.ToString(), Encryption.Secret);
+
             // edit the current xml file
-            editXmlConfigFile(tabName, providerName, connectionString.ToString());
+            editXmlConfigFile(tabName, providerName, encryptedString);
         }
 
         /// <summary>
