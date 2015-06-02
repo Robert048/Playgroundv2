@@ -147,7 +147,7 @@ namespace Playground_v2
             txtFormula.Text = "Formule deel 1:";
             pnlFormules.Invoke(new Action(() => pnlFormules.Controls.Add(txtFormula)));
 
-            //loop thru formulas List and displays them on panel
+            //loop through formulas List and displays them on panel
             foreach (object formula in formulas)
             {
                 if (y >= pnlFormules.Height - 51)
@@ -316,7 +316,7 @@ namespace Playground_v2
                 //add machines to playground
                 int y = 0;
                 int x = 0;
-                //loops thru machines List and add them to the panel
+                //loops through machines List and add them to the panel
                 foreach (dbObject machine in machines)
                 {
                     if (y >= pnlPlayground.Height - 51)
