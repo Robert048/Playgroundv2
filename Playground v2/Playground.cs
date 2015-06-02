@@ -106,7 +106,6 @@ namespace Playground_v2
                 // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
             }
-
         }
 
         /// <summary>
