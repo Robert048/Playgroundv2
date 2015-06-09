@@ -35,6 +35,7 @@ namespace Playground_v2
 
         public Playground()
         {
+            
             InitializeComponent();
             database = new Database();
 
@@ -58,10 +59,10 @@ namespace Playground_v2
         private void databaseUpdate()
         {
             //TODO finishing
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 30000;
-            timer.Elapsed += tick;
-            timer.Enabled = true;
+            //System.Timers.Timer timer = new System.Timers.Timer();
+            //timer.Interval = 30000;
+            //timer.Elapsed += tick;
+            //timer.Enabled = true;
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace Playground_v2
         /// <param name="e"></param>
         private void tick(object sender, System.Timers.ElapsedEventArgs e)
         {
-            updateListBox();
+            //updateListBox();
             //TODO playground updaten
             //TODO fomules updaten
         }
@@ -87,19 +88,29 @@ namespace Playground_v2
             }
             else
             {
+                
                 //fill checked list box
                 listBoxDB1.BeginUpdate();
                 //IP_PVDEF = table name on ASPEN TECH database
                 string query = "select * from IP_PVDEF";
                 OdbcDataAdapter dadapter = new OdbcDataAdapter();
+                MessageBox.Show("1");
                 dadapter.SelectCommand = new OdbcCommand(query, database.getConnection());
+                MessageBox.Show("2");
                 DataTable table = new DataTable();
                 using (OdbcDataReader oReader = dadapter.SelectCommand.ExecuteReader())
                 {
+                    MessageBox.Show("3");
+                    int i = 0;
                     while (oReader.Read())
                     {
                         //add items to checked listbox
+                        i++;
                         listBoxDB1.Items.Add(oReader["NAME"].ToString());
+                        if(i % 100 == 0)
+                        {
+                            MessageBox.Show(i + "");
+                        }
                     }
                 }
 
