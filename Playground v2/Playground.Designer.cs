@@ -56,11 +56,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.DB1 = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.listBoxDB1 = new System.Windows.Forms.CheckedListBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.listBoxDB2 = new System.Windows.Forms.CheckedListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -247,8 +249,8 @@
             // 
             // pnlPlaygroundBG
             // 
-            this.pnlPlaygroundBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlPlaygroundBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPlaygroundBG.Controls.Add(this.pnlFormules);
             this.pnlPlaygroundBG.Controls.Add(this.pnlPlayground);
@@ -270,8 +272,8 @@
             // 
             // pnlPlayground
             // 
-            this.pnlPlayground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlPlayground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPlayground.Location = new System.Drawing.Point(0, 0);
             this.pnlPlayground.Name = "pnlPlayground";
@@ -313,6 +315,7 @@
             // 
             // DB1
             // 
+            this.DB1.Controls.Add(this.progressBar1);
             this.DB1.Controls.Add(this.listBoxDB1);
             this.DB1.Controls.Add(this.panel5);
             this.DB1.Location = new System.Drawing.Point(4, 22);
@@ -322,6 +325,15 @@
             this.DB1.TabIndex = 0;
             this.DB1.Text = "Aspen tech";
             this.DB1.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(3, 265);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(186, 16);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 3;
+            this.progressBar1.Visible = false;
             // 
             // listBoxDB1
             // 
@@ -373,6 +385,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.progressBar2);
             this.tabPage2.Controls.Add(this.listBoxDB2);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -380,8 +393,17 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(192, 280);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Wonderware";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(3, 263);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(186, 17);
+            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar2.TabIndex = 0;
+            this.progressBar2.Visible = false;
             // 
             // listBoxDB2
             // 
@@ -543,5 +565,7 @@
         private System.Windows.Forms.Panel pnlFormules;
         private System.Windows.Forms.Panel pnlPlayground;
         private System.Windows.Forms.ToolStripButton btnAddFormula;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 }
