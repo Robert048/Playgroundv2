@@ -18,32 +18,53 @@ namespace Playground_v2
     public partial class Playground : Form
     {
         //Database object
-        Database database;
+        private readonly DatabaseOdbc _databaseOdbc;
+        private readonly DatabaseSql _databaseSql;
 
         //threads
-        Thread databaseConnectionThread;
+        private readonly Thread databaseConnectionOdbcThread;
+        private readonly Thread databaseConnectionSqlThread;
+
         Thread databaseOptionsThread;
         Thread newFormula;
         Thread databaseRefresh;
 
         //list with selected machines
-        List<dbObject> machines;
+        private readonly List<dbObject> machines;
         List<string> formulas;
 
         //method for invoke required
-        delegate void updateListBoxCallBack();
+        delegate void updateListBox1CallBack();
+
+        private delegate void updateListBox2CallBack();
 
         public Playground()
         {
             
             InitializeComponent();
-            database = new Database();
+
+            _databaseOdbc = new DatabaseOdbc();
+            _databaseSql = new DatabaseSql();
+
+            machines = new List<dbObject>();
 
             //make a thread for the database connection
-            databaseConnectionThread = new Thread(new ThreadStart(connection));
-            databaseConnectionThread.Start();
+            databaseConnectionOdbcThread = new Thread(ConnectionOdbc)
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true
+            };
+            databaseConnectionOdbcThread.Start();
+
+            databaseConnectionSqlThread = new Thread(ConnectionSql)
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true
+            };
+            databaseConnectionSqlThread.Start();
+
             //make a thread for the database refresh
-            databaseRefresh = new Thread(new ThreadStart(databaseUpdate));
+            databaseRefresh = new Thread(databaseUpdate);
             databaseRefresh.Start();
 
             //add scrollbars to playground panel
@@ -77,64 +98,123 @@ namespace Playground_v2
             //TODO fomules updaten
         }
 
-        //fill the checkedlistbox with values from database
-        private void updateListBox()
+        private int tempCounter1 = 0;
+        private int tempCounter2 = 0;
+
+        private async void UpdateListBox1Async()
         {
-            //check to fix thread problems
-            if (this.listBoxDB1.InvokeRequired)
+            if (listBoxDB1.InvokeRequired)
             {
-                updateListBoxCallBack d = new updateListBoxCallBack(updateListBox);
-                this.Invoke(d, new object[] { });
+                var d = new updateListBox1CallBack(UpdateListBox1Async);
+                Invoke(d, new object[] {});
             }
             else
             {
-                
-                //fill checked list box
                 listBoxDB1.BeginUpdate();
-                //IP_PVDEF = table name on ASPEN TECH database
-                string query = "select * from IP_PVDEF";
-                OdbcDataAdapter dadapter = new OdbcDataAdapter();
-                MessageBox.Show("1");
-                dadapter.SelectCommand = new OdbcCommand(query, database.getConnection());
-                MessageBox.Show("2");
-                DataTable table = new DataTable();
-                using (OdbcDataReader oReader = dadapter.SelectCommand.ExecuteReader())
+                progressBar1.Visible = true;
+
+                const string query = "select * from IP_PVDEF";
+
+                var adapter = new OdbcDataAdapter
                 {
-                    MessageBox.Show("3");
-                    int i = 0;
-                    while (oReader.Read())
+                    SelectCommand = new OdbcCommand(query, _databaseOdbc.getConnection())
+                };
+
+                using (var reader = await adapter.SelectCommand.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
                     {
-                        //add items to checked listbox
-                        i++;
-                        listBoxDB1.Items.Add(oReader["NAME"].ToString());
-                        if(i % 100 == 0)
-                        {
-                            MessageBox.Show(i + "");
-                        }
+                        tempCounter1++;
+                        // just a test
+                        // todo: remove
+                        if (tempCounter1 >= 10)
+                            break;
+
+                        var name = reader["NAME"].ToString();
+
+                        listBoxDB1.Invoke(new Action(() => { listBoxDB1.Items.Add(name); }));
                     }
                 }
 
-                // End the update process and force a repaint of the ListBox.
                 listBoxDB1.EndUpdate();
+                progressBar1.Visible = false;
+            }
+        }
+
+        private async void UpdateListBox2Async()
+        {
+            if (listBoxDB2.InvokeRequired)
+            {
+                var d = new updateListBox2CallBack(UpdateListBox2Async);
+                Invoke(d, new object[] { });
+            }
+            else
+            {
+                listBoxDB2.BeginUpdate();
+                progressBar2.Visible = true;
+
+                const string query = "select * from usr_vw_job_EMM";
+
+                var adapter = new SqlDataAdapter(query, _databaseSql.getConnection());
+
+                using (var reader = await adapter.SelectCommand.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        tempCounter2++;
+                        // just a test
+                        // todo: remove
+                        if (tempCounter2 >= 10)
+                            break;
+
+                        var name = reader.GetValue(0).ToString();
+
+                        listBoxDB2.Invoke(new Action(() => { listBoxDB2.Items.Add(name); }));
+                    }
+                }
+
+                listBoxDB2.EndUpdate();
+                progressBar2.Visible = false;
             }
         }
 
         /// <summary>
         /// database connection thread
         /// </summary>
-        private void connection()
+        private async void ConnectionOdbc()
         {
-            if (database.databaseConnection())
+            if (await _databaseOdbc.databaseConnection())
             {
-                //call update listbox method
-                updateListBox();
-
-                //close database connection
-                database.closeConnection();
+                // update the listbox
+                await Task.Factory.StartNew(UpdateListBox1Async).ContinueWith((t) =>
+                {
+                    //close database connection
+                    _databaseOdbc.closeConnection();
+                });
             }
 
             //close thread
-            databaseConnectionThread.Abort();
+            databaseConnectionOdbcThread.Abort();
+        }
+
+        /// <summary>
+        /// database connection thread
+        /// </summary>
+        private async void ConnectionSql()
+        {
+            if (await _databaseSql.databaseConnection())
+            {
+                // update the listbox
+                await Task.Factory.StartNew(UpdateListBox2Async).ContinueWith((t) =>
+                {
+                    //close database connection
+                    // todo: fix connection close exception
+                    //_databaseSql.closeConnection();
+                });
+            }
+
+            //close thread
+            databaseConnectionSqlThread.Abort();
         }
 
         /// <summary>
@@ -249,11 +329,11 @@ namespace Playground_v2
                 //TODO query fixen
                 OdbcCommand cmd = new OdbcCommand("SELECT NAME FROM IP_PVDEF WHERE IP_#_OF_TREND_VALUES = 2");
                 cmd.CommandType = CommandType.Text;
-                cmd.Connection = database.getConnection();
+                cmd.Connection = _databaseOdbc.getConnection();
                 cmd.Parameters.Add("@naam", OdbcType.VarChar);
                 cmd.Parameters.Add("@wildcard", OdbcType.Text).Value = "%";
                 //open database connection
-                database.getConnection().Open();
+                _databaseOdbc.getConnection().Open();
                 OdbcDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -265,7 +345,7 @@ namespace Playground_v2
                 }
                 //end checked listbox update and close database connection
                 listBoxDB1.EndUpdate();
-                database.getConnection().Close();
+                _databaseOdbc.getConnection().Close();
             }
 
             catch (Exception ex)
@@ -283,13 +363,23 @@ namespace Playground_v2
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            //get checked items and place them in the list
-            machines = new List<dbObject>();
-            foreach (object itemChecked in listBoxDB1.CheckedItems)
-            {
-                dbObject temp = new dbObject(itemChecked.ToString());
-                machines.Add(temp);
-            }
+            var selectedBox = tabControl.SelectedIndex;
+
+            machines.Clear();
+
+                //get checked items and place them in the list
+                foreach (object itemChecked in listBoxDB1.CheckedItems)
+                {
+                    dbObject temp = new dbObject(itemChecked.ToString());
+                    machines.Add(temp);
+                }
+
+                foreach (object itemChecked in listBoxDB2.CheckedItems)
+                {
+                    dbObject temp = new dbObject(itemChecked.ToString());
+                    machines.Add(temp);
+                }
+
             addMachines();
         }
 
@@ -300,9 +390,21 @@ namespace Playground_v2
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (int i in listBoxDB1.CheckedIndices)
+            var selectedBox = tabControl.SelectedIndex;
+
+            if (selectedBox == 0)
             {
-                listBoxDB1.SetItemCheckState(i, CheckState.Unchecked);
+                foreach (int i in listBoxDB1.CheckedIndices)
+                {
+                    listBoxDB1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+            else
+            {
+                foreach (int i in listBoxDB2.CheckedIndices)
+                {
+                    listBoxDB1.SetItemCheckState(i, CheckState.Unchecked);
+                }
             }
         }
 
